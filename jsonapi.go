@@ -45,4 +45,3 @@ func jsonOk(w http.ResponseWriter, r *http.Request, data interface{}) {
 		log.Printf("%s: error writing response: %+v\n", err)
 	}
 }
-

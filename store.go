@@ -59,6 +59,10 @@ type Planet struct {
 	sortKey                  string
 }
 
+type Ship struct {
+	Id string
+}
+
 type System struct {
 	Id     int
 	Coords struct {
@@ -70,6 +74,7 @@ type System struct {
 	Planets   []*Planet
 	Scanned   int
 	Shipyards int
+	Ships     []*Ship
 	Visited   bool
 }
 
@@ -87,6 +92,14 @@ func (ds *Store) Load(root string) error {
 		Quantity int    `json:"qty"`
 		Location string `json:"location,omitempty"`
 	}
+	type ship struct {
+		Id        string  `json:"id"`
+		Landed    bool    `json:"landed"`
+		Orbiting  bool    `json:"orbiting"`
+		DeepSpace bool    `json:"deep_space"`
+		Hiding    bool    `json:"hiding"`
+		Inventory []*item `json:"inventory,omitempty"`
+	}
 	type planet struct {
 		Id                       string  `json:"id"`
 		Orbit                    int     `json:"orbit"`
@@ -94,9 +107,11 @@ func (ds *Store) Load(root string) error {
 		HomeWorld                bool    `json:"home_world,omitempty"`
 		AvailablePopulationUnits int     `json:"available_population_units,omitempty"`
 		EconomicEfficiency       int     `json:"economic_efficiency,omitempty"`
+		Inventory                []*item `json:"inventory,omitempty"`
 		LSN                      int     `json:"lsn,omitempty"`
 		MiningDifficulty         float64 `json:"mining_difficulty,omitempty"`
 		ProductionPenalty        int     `json:"production_penalty,omitempty"`
+		Ships                    []*ship `json:"ships,omitempty"`
 	}
 	type system struct {
 		Id     int `json:"id"`
@@ -110,18 +125,22 @@ func (ds *Store) Load(root string) error {
 		Scanned   int       `json:"scanned,omitempty"`
 		Shipyards int       `json:"shipyards,omitempty"`
 		Visited   bool      `json:"visited,omitempty"`
+		Ships     []*ship   `json:"ships,omitempty"`
 	}
 
 	b, err := ioutil.ReadFile(filepath.Join(root, "store.json"))
 	if err != nil {
 		return err
 	}
-	var systems []*system
-	if err = json.Unmarshal(b, &systems); err != nil {
+	var data struct {
+		Systems []*system `json:"systems"`
+		Ships   []*ship   `json:"ships"`
+	}
+	if err = json.Unmarshal(b, &data); err != nil {
 		return err
 	}
 
-	for _, v := range systems {
+	for _, v := range data.Systems {
 		log.Printf("loading system %d\n", v.Id)
 		sys := &System{
 			Id:        v.Id,

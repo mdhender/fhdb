@@ -136,114 +136,17 @@ func (s *Server) handleGetSystem() http.HandlerFunc {
 			http.Error(w, http.StatusText(http.StatusInternalServerError), http.StatusInternalServerError)
 			return
 		}
-		type coords struct {
-			X int `json:"x"`
-			Y int `json:"y"`
-			Z int `json:"z"`
-		}
-		type planet struct {
-			Id                       string  `json:"id"`
-			Orbit                    int     `json:"orbit"`
-			Name                     string  `json:"name"`
-			HomeWorld                bool    `json:"home_world"`
-			AvailablePopulationUnits int     `json:"available_population_units"`
-			EconomicEfficiency       int     `json:"economic_efficiency"`
-			LSN                      int     `json:"lsn"`
-			MiningDifficulty         float64 `json:"mining_difficulty"`
-			ProductionPenalty        int     `json:"production_penalty"`
-		}
-		type data struct {
-			Id      int       `json:"id"`
-			Coords  coords    `json:"coords"`
-			Planets []*planet `json:"planets"`
-			Scanned int       `json:"scanned,omitempty"`
-			Visited bool      `json:"visited"`
-		}
-
-		rsp := data{
-			Id:      system.Id,
-			Coords:  coords{X: system.Coords.X, Y: system.Coords.Y, Z: system.Coords.Z},
-			Planets: []*planet{},
-			Scanned: system.Scanned,
-			Visited: system.TaggedAsVisited(),
-		}
-		for _, p := range system.Planets {
-			rsp.Planets = append(rsp.Planets, &planet{
-				Id:                       p.Id,
-				Orbit:                    p.Orbit,
-				Name:                     p.Name,
-				HomeWorld:                p.HomeWorld,
-				AvailablePopulationUnits: p.AvailablePopulationUnits,
-				EconomicEfficiency:       p.EconomicEfficiency,
-				LSN:                      p.LSN,
-				MiningDifficulty:         p.MiningDifficulty,
-				ProductionPenalty:        p.ProductionPenalty,
-			})
-		}
-
-		jsonOk(w, r, rsp)
+		jsonOk(w, r, s.helperGetSystems([]*System{system})[0])
 	}
 }
 
 func (s *Server) handleGetSystems() http.HandlerFunc {
 	return func(w http.ResponseWriter, r *http.Request) {
-		if s.ds == nil {
+		if s.ds != nil {
 			http.Error(w, http.StatusText(http.StatusInternalServerError), http.StatusInternalServerError)
 			return
 		}
-		type coords struct {
-			X int `json:"x"`
-			Y int `json:"y"`
-			Z int `json:"z"`
-		}
-		type planet struct {
-			Id                       string  `json:"id"`
-			Orbit                    int     `json:"orbit"`
-			Name                     string  `json:"name"`
-			HomeWorld                bool    `json:"home_world"`
-			AvailablePopulationUnits int     `json:"available_population_units"`
-			EconomicEfficiency       int     `json:"economic_efficiency"`
-			LSN                      int     `json:"lsn"`
-			MiningDifficulty         float64 `json:"mining_difficulty"`
-			ProductionPenalty        int     `json:"production_penalty"`
-		}
-		type data struct {
-			Id      int    `json:"id"`
-			Coords  coords `json:"coords"`
-			Planets []*planet `json:"planets"`
-			Scanned int    `json:"scanned"`
-			Visited bool   `json:"visited"`
-			Links   struct {
-				Self string `json:"self"`
-			} `json:"links"`
-		}
-
-		var rsp []data
-		for _, system := range s.ds.Sorted.Systems {
-			d := data{
-				Id:      system.Id,
-				Coords:  coords{X: system.Coords.X, Y: system.Coords.Y, Z: system.Coords.Z},
-				Planets: []*planet{},
-				Scanned: system.Scanned,
-				Visited: system.TaggedAsVisited(),
-			}
-			d.Links.Self = fmt.Sprintf("/api/systems/%d", d.Id)
-			for _, p := range system.Planets {
-				d.Planets = append(d.Planets, &planet{
-					Id:                       p.Id,
-					Orbit:                    p.Orbit,
-					Name:                     p.Name,
-					HomeWorld:                p.HomeWorld,
-					AvailablePopulationUnits: p.AvailablePopulationUnits,
-					EconomicEfficiency:       p.EconomicEfficiency,
-					LSN:                      p.LSN,
-					MiningDifficulty:         p.MiningDifficulty,
-					ProductionPenalty:        p.ProductionPenalty,
-				})
-			}
-			rsp = append(rsp, d)
-		}
-
+		rsp := s.helperGetSystems(s.ds.Sorted.Systems)
 		jsonOk(w, r, rsp)
 	}
 }
@@ -253,36 +156,46 @@ type jCoords struct {
 	Y int `json:"y"`
 	Z int `json:"z"`
 }
+type jItem struct {
+	Code     string `json:"code"`
+	Quantity int    `json:"qty"`
+	Location string `json:"location,omitempty"`
+}
+type jShip struct {
+	Id        string   `json:"id"`
+	Landed    bool     `json:"landed"`
+	Orbiting  bool     `json:"orbiting"`
+	DeepSpace bool     `json:"deep_space"`
+	Hiding    bool     `json:"hiding"`
+	Inventory []*jItem `json:"inventory,omitempty"`
+}
 type jPlanet struct {
-	Id                       string  `json:"id"`
-	Orbit                    int     `json:"orbit"`
-	Name                     string  `json:"name"`
-	HomeWorld                bool    `json:"home_world"`
-	AvailablePopulationUnits int     `json:"available_population_units"`
-	EconomicEfficiency       int     `json:"economic_efficiency"`
-	LSN                      int     `json:"lsn"`
-	MiningDifficulty         float64 `json:"mining_difficulty"`
-	ProductionPenalty        int     `json:"production_penalty"`
+	Id                       string   `json:"id"`
+	Orbit                    int      `json:"orbit"`
+	Name                     string   `json:"name"`
+	HomeWorld                bool     `json:"home_world"`
+	AvailablePopulationUnits int      `json:"available_population_units"`
+	EconomicEfficiency       int      `json:"economic_efficiency"`
+	LSN                      int      `json:"lsn"`
+	MiningDifficulty         float64  `json:"mining_difficulty"`
+	ProductionPenalty        int      `json:"production_penalty"`
+	Ships                    []*jShip `json:"ships,omitempty"`
 }
 type jSystem struct {
-	Id      int    `json:"id"`
-	Coords  jCoords `json:"coords"`
+	Id      int        `json:"id"`
+	Coords  jCoords    `json:"coords"`
 	Planets []*jPlanet `json:"planets"`
-	Scanned int    `json:"scanned"`
-	Visited bool   `json:"visited"`
+	Scanned int        `json:"scanned"`
+	Ships   []*jShip   `json:"ships,omitempty"`
+	Visited bool       `json:"visited"`
 	Links   struct {
 		Self string `json:"self"`
 	} `json:"links"`
 }
 
-func (s *Server) helperGetSystems() []*jSystem {
-	var allSystems []*System
-	if s.ds != nil {
-		allSystems = s.ds.Sorted.Systems
-	}
-
+func (s *Server) helperGetSystems(all []*System) []*jSystem {
 	systems := []*jSystem{}
-	for _, system := range allSystems {
+	for _, system := range all {
 		d := &jSystem{
 			Id:      system.Id,
 			Coords:  jCoords{X: system.Coords.X, Y: system.Coords.Y, Z: system.Coords.Z},
