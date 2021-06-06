@@ -1,0 +1,15 @@
+{
+  "data": {
+    "id": "Gamma",
+    "coords": {
+      "x": 26,
+      "y": 37,
+      "z": 29,
+      "orbit": 1
+    },
+    "economic_efficiency": 100,
+    "lsn": 12,
+    "mining_difficulty": 0.96,
+    "production_penalty": 92
+  }
+}

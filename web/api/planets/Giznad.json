@@ -1,0 +1,16 @@
+{
+  "data": {
+    "id": "Giznad",
+    "coords": {
+      "x": 30,
+      "y": 41,
+      "z": 26,
+      "orbit": 3
+    },
+    "available_population_units": 1500,
+    "economic_efficiency": 100,
+    "lsn": 0,
+    "mining_difficulty": 2.07,
+    "production_penalty": 0
+  }
+}

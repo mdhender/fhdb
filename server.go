@@ -24,20 +24,21 @@ package main
 
 import (
 	"fmt"
+	"github.com/mdhender/fhdb/store"
 	"github.com/mdhender/fhdb/way"
 	"net/http"
-	"strconv"
 )
 
 type Server struct {
 	http.Server
+	Data      string // path to read and write data files
 	DtFmt     string // format string for timestamps in responses
 	Router    *way.Router
 	Templates struct {
 		Root string
 	}
 	debug bool
-	ds    *Store
+	ds    *store.Store
 }
 
 func (s *Server) handleGetPlanet() http.HandlerFunc {
@@ -117,18 +118,24 @@ func (s *Server) handleGetPlanets() http.HandlerFunc {
 	}
 }
 
+func (s *Server) handleSave() http.HandlerFunc {
+	return func(w http.ResponseWriter, r *http.Request) {
+		if s.ds == nil {
+			http.Error(w, http.StatusText(http.StatusInternalServerError), http.StatusInternalServerError)
+			return
+		}
+		s.ds.Write(s.Data)
+		w.WriteHeader(http.StatusOK)
+	}
+}
+
 func (s *Server) handleGetSystem() http.HandlerFunc {
 	return func(w http.ResponseWriter, r *http.Request) {
 		if s.ds == nil {
 			http.Error(w, http.StatusText(http.StatusInternalServerError), http.StatusInternalServerError)
 			return
 		}
-		id, err := strconv.Atoi(way.Param(r.Context(), "id"))
-		if err != nil {
-			http.Error(w, http.StatusText(http.StatusNotFound), http.StatusNotFound)
-			return
-		}
-		system, ok := s.ds.Systems[id]
+		system, ok := s.ds.Systems[way.Param(r.Context(), "id")]
 		if !ok {
 			http.Error(w, http.StatusText(http.StatusNotFound), http.StatusNotFound)
 			return
@@ -136,13 +143,13 @@ func (s *Server) handleGetSystem() http.HandlerFunc {
 			http.Error(w, http.StatusText(http.StatusInternalServerError), http.StatusInternalServerError)
 			return
 		}
-		jsonOk(w, r, s.helperGetSystems([]*System{system})[0])
+		jsonOk(w, r, s.helperGetSystems([]*store.System{system})[0])
 	}
 }
 
 func (s *Server) handleGetSystems() http.HandlerFunc {
 	return func(w http.ResponseWriter, r *http.Request) {
-		if s.ds != nil {
+		if s.ds == nil {
 			http.Error(w, http.StatusText(http.StatusInternalServerError), http.StatusInternalServerError)
 			return
 		}
@@ -158,16 +165,22 @@ type jCoords struct {
 }
 type jItem struct {
 	Code     string `json:"code"`
+	Location string `json:"location"`
 	Quantity int    `json:"qty"`
-	Location string `json:"location,omitempty"`
 }
 type jShip struct {
-	Id        string   `json:"id"`
-	Landed    bool     `json:"landed"`
-	Orbiting  bool     `json:"orbiting"`
-	DeepSpace bool     `json:"deep_space"`
-	Hiding    bool     `json:"hiding"`
-	Inventory []*jItem `json:"inventory,omitempty"`
+	Id                 string   `json:"id"`
+	Capacity           int      `json:"capacity"`
+	DeepSpace          bool     `json:"deep_space"`
+	ForcedJump         bool     `json:"forced_jump"`
+	FTL                bool     `json:"ftl"`
+	Hiding             bool     `json:"hiding"`
+	Landed             bool     `json:"landed"`
+	Location           string   `json:"location"`
+	MaintenanceCost    int      `json:"maintenance_cost"`
+	Orbiting           bool     `json:"orbiting"`
+	WithdrewFromCombat bool     `json:"withdrew_from_combat"`
+	Inventory          []*jItem `json:"inventory"`
 }
 type jPlanet struct {
 	Id                       string   `json:"id"`
@@ -176,48 +189,79 @@ type jPlanet struct {
 	HomeWorld                bool     `json:"home_world"`
 	AvailablePopulationUnits int      `json:"available_population_units"`
 	EconomicEfficiency       int      `json:"economic_efficiency"`
+	Inventory                []*jItem `json:"inventory"`
 	LSN                      int      `json:"lsn"`
 	MiningDifficulty         float64  `json:"mining_difficulty"`
 	ProductionPenalty        int      `json:"production_penalty"`
-	Ships                    []*jShip `json:"ships,omitempty"`
+	Ships                    []*jShip `json:"ships"`
+	Shipyards                int      `json:"shipyards"`
 }
 type jSystem struct {
-	Id      int        `json:"id"`
-	Coords  jCoords    `json:"coords"`
+	Id      string     `json:"id"`
+	X       int        `json:"x"`
+	Y       int        `json:"Y"`
+	Z       int        `json:"z"`
 	Planets []*jPlanet `json:"planets"`
 	Scanned int        `json:"scanned"`
-	Ships   []*jShip   `json:"ships,omitempty"`
+	Ships   []*jShip   `json:"ships"`
 	Visited bool       `json:"visited"`
 	Links   struct {
 		Self string `json:"self"`
 	} `json:"links"`
 }
 
-func (s *Server) helperGetSystems(all []*System) []*jSystem {
-	systems := []*jSystem{}
+func (s *Server) helperGetSystems(all []*store.System) []*jSystem {
+	var systems []*jSystem
 	for _, system := range all {
 		d := &jSystem{
 			Id:      system.Id,
-			Coords:  jCoords{X: system.Coords.X, Y: system.Coords.Y, Z: system.Coords.Z},
+			X:       system.X,
+			Y:       system.Y,
+			Z:       system.Z,
 			Planets: []*jPlanet{},
 			Scanned: system.Scanned,
+			Ships:   []*jShip{},
 			Visited: system.TaggedAsVisited(),
 		}
-		d.Links.Self = fmt.Sprintf("/api/systems/%d", d.Id)
+		d.Links.Self = fmt.Sprintf("/api/systems/%s", d.Id)
 		for _, p := range system.Planets {
-			d.Planets = append(d.Planets, &jPlanet{
+			jp := &jPlanet{
 				Id:                       p.Id,
 				Orbit:                    p.Orbit,
 				Name:                     p.Name,
 				HomeWorld:                p.HomeWorld,
 				AvailablePopulationUnits: p.AvailablePopulationUnits,
 				EconomicEfficiency:       p.EconomicEfficiency,
+				Inventory: []*jItem{},
 				LSN:                      p.LSN,
 				MiningDifficulty:         p.MiningDifficulty,
 				ProductionPenalty:        p.ProductionPenalty,
-			})
+				Ships:                    []*jShip{},
+				Shipyards:                p.Shipyards,
+			}
+			for code, inv := range p.Inventory {
+				if inv.Quantity == 0 {
+					continue
+				}
+				jp.Inventory = append(jp.Inventory, &jItem{
+					Code:     code,
+					Location: inv.Location,
+					Quantity: inv.Quantity,
+				})
+			}
+			for _, ship := range p.Ships {
+				js := &jShip{
+					Id: ship.Id,
+					Inventory: []*jItem{},
+				}
+				jp.Ships = append(jp.Ships, js)
+			}
+			d.Planets = append(d.Planets, jp)
 		}
 		systems = append(systems, d)
+	}
+	if systems == nil {
+		return []*jSystem{}
 	}
 	return systems
 }

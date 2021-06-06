@@ -1,0 +1,110 @@
+{
+  "data": {
+    "id": 1,
+    "turn": 1,
+    "mi": 10,
+    "ma": 10,
+    "ml": 2, "gv": 5,"ls":4,"bi":4,
+    "eu": 508,
+    "planets": {
+      "Giznad": {
+        "coords": {
+          "x": 30,
+          "y": 41,
+          "z": 26,
+          "orbit": 3
+        },
+        "available_population_units": 1500,
+        "production_penalty": 0,
+        "economic_efficiency": 100,
+        "mining_base": 105.3,
+        "mining_difficulty": 2.07,
+        "manufacturing_base": 50.9,
+        "shipyards": 1
+      }
+    },
+    "combat": {},
+    "pre-departure": {},
+    "jumps": {},
+    "production": {
+      "lines": [
+        {
+          "command": "PRODUCTION",
+          "planet": "Giznad",
+          "lines": [
+            {
+              "command": "SHIPYARD",
+              "cost": 100,
+              "notes": [
+                "Cost to build 1 shipyard is 10x MA"
+              ]
+            },
+            {
+              "command": "BUILD",
+              "code": "TR2",
+              "name": "Tantra",
+              "cost": 200,
+              "notes": [
+                "cargo capacity 22"
+              ]
+            },
+            {
+              "command": "BUILD",
+              "code": "CU",
+              "qty": 10,
+              "xfr_to": "TR2 Tantra",
+              "cost": 10
+            },
+            {
+              "command": "BUILD",
+              "code": "IU",
+              "qty": 5,
+              "xfr_to": "TR2 Tantra",
+              "cost": 5
+            },
+            {
+              "command": "BUILD",
+              "code": "AU",
+              "qty": 5,
+              "xfr_to": "TR2 Tantra",
+              "cost": 5
+            },
+            {
+              "command": "RESEARCH",
+              "tech": "GV",
+              "cost": 90
+            },
+            {
+              "command": "RESEARCH",
+              "tech": "LS",
+              "cost": 90
+            },
+            {
+              "command": "RESEARCH",
+              "tech": "BI",
+              "cost": 8
+            }
+          ]
+        }
+      ],
+      "notes": []
+    },
+    "post-arrival": {
+      "commands": [
+        {
+          "command": "AUTO",
+          "notes": [
+            "generate orders for next turn"
+          ]
+        }
+      ]
+    },
+    "strikes": {},
+    "notes": [
+      "want to visit",
+      "33  38  27  4%",
+      "25  41  24  6%",
+      "26  37  29  9%"
+    ]
+  }
+}

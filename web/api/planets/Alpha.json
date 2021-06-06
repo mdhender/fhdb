@@ -1,0 +1,15 @@
+{
+  "data": {
+    "id": "Alpha",
+    "coords": {
+      "x": 33,
+      "y": 38,
+      "z": 27,
+      "orbit": 3
+    },
+    "economic_efficiency": 100,
+    "lsn": 9,
+    "mining_difficulty": 1.43,
+    "production_penalty": 69
+  }
+}

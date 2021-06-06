@@ -22,10 +22,14 @@
 
 package main
 
-import "net/http"
+import (
+	"github.com/mdhender/fhdb/config"
+	"github.com/mdhender/fhdb/handlers"
+	"net/http"
+)
 
 // Routes initializes all routes exposed by the Server.
-func (s *Server) Routes() error {
+func (s *Server) Routes(cfg *config.Config) error {
 	for _, route := range []struct {
 		method  string
 		pattern string
@@ -33,11 +37,12 @@ func (s *Server) Routes() error {
 	}{
 		{"GET", "/api/planets", s.handleGetPlanets()},
 		{"GET", "/api/planets/:id", s.handleGetPlanet()},
+		{"GET", "/api/flush", s.handleSave()},
 		{"GET", "/api/systems", s.handleGetSystems()},
 		{"GET", "/api/systems/:id", s.handleGetSystem()},
 	} {
 		s.Router.HandleFunc(route.method, route.pattern, mwCORS(route.handler))
 	}
-
+	s.Router.NotFound = handlers.Static("/", cfg.Server.Web.Root, true, true)
 	return nil
 }

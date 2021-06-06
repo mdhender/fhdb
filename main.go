@@ -25,6 +25,7 @@ package main
 import (
 	"fmt"
 	"github.com/mdhender/fhdb/config"
+	"github.com/mdhender/fhdb/store"
 	"github.com/mdhender/fhdb/way"
 	"log"
 	"mime"
@@ -61,18 +62,19 @@ func run(cfg *config.Config) error {
 	s := &Server{
 		Router: way.NewRouter(),
 	}
-	s.Addr = net.JoinHostPort(cfg.Server.Host, cfg.Server.Port)
+	s.Addr = net.JoinHostPort(cfg.Server.Host, fmt.Sprintf("%d", cfg.Server.Port))
 	s.IdleTimeout = cfg.Server.Timeout.Idle
 	s.ReadTimeout = cfg.Server.Timeout.Read
 	s.WriteTimeout = cfg.Server.Timeout.Write
 	s.MaxHeaderBytes = 1 << 20 // TODO: make this configurable
 	s.Handler = s.Router
-	s.ds = &Store{}
-	if err := s.ds.Load(cfg.Data); err != nil {
+	s.Data = cfg.Data
+	s.ds = &store.Store{}
+	if err := s.ds.Read(s.Data); err != nil {
 		return err
 	}
 
-	if err := s.Routes(); err != nil {
+	if err := s.Routes(cfg); err != nil {
 		return err
 	}
 

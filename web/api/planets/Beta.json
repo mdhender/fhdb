@@ -1,0 +1,15 @@
+{
+  "data": {
+    "id": "Beta",
+    "coords": {
+      "x": 25,
+      "y": 41,
+      "z": 24,
+      "orbit": 2
+    },
+    "economic_efficiency": 100,
+    "lsn": 6,
+    "mining_difficulty": 1.03,
+    "production_penalty": 46
+  }
+}

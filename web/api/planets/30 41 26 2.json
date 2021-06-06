@@ -1,0 +1,13 @@
+{
+  "data": {
+    "id": "30 41 26 2",
+    "coords": {
+      "x": 30,
+      "y": 41,
+      "z": 26,
+      "orbit": 2
+    },
+    "lsn": 15,
+    "mining_difficulty": 0.39
+  }
+}
