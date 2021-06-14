@@ -24,9 +24,14 @@ package main
 
 import (
 	"fmt"
+	"github.com/mdhender/fhdb/handlers"
+	"github.com/mdhender/fhdb/ports"
 	"github.com/mdhender/fhdb/store"
+	"github.com/mdhender/fhdb/store/jsondb"
 	"github.com/mdhender/fhdb/way"
 	"net/http"
+	"strconv"
+	"strings"
 )
 
 type Server struct {
@@ -39,6 +44,94 @@ type Server struct {
 	}
 	debug bool
 	ds    *store.Store
+	jdb   *jsondb.Store
+}
+
+func (s *Server) handleCalcMishap() http.HandlerFunc {
+	return func(w http.ResponseWriter, r *http.Request) {
+		fields := strings.Split(way.Param(r.Context(), "from"), " ")
+		if len(fields) != 3 {
+			http.Error(w, "invalid from", http.StatusBadRequest)
+		}
+		fromX, err := strconv.Atoi(fields[0])
+		if err != nil {
+			http.Error(w, "invalid from.x", http.StatusBadRequest)
+			return
+		}
+		fromY, err := strconv.Atoi(fields[1])
+		if err != nil {
+			http.Error(w, "invalid from.y", http.StatusBadRequest)
+			return
+		}
+		fromZ, err := strconv.Atoi(fields[2])
+		if err != nil {
+			http.Error(w, "invalid from.z", http.StatusBadRequest)
+			return
+		}
+		fields = strings.Split(way.Param(r.Context(), "to"), " ")
+		if len(fields) != 3 {
+			http.Error(w, "invalid to", http.StatusBadRequest)
+		}
+		toX, err := strconv.Atoi(fields[0])
+		if err != nil {
+			http.Error(w, "invalid to.x", http.StatusBadRequest)
+			return
+		}
+		toY, err := strconv.Atoi(fields[1])
+		if err != nil {
+			http.Error(w, "invalid to.y", http.StatusBadRequest)
+			return
+		}
+		toZ, err := strconv.Atoi(fields[2])
+		if err != nil {
+			http.Error(w, "invalid to.z", http.StatusBadRequest)
+			return
+		}
+		mishapAge, err := strconv.Atoi(way.Param(r.Context(), "age"))
+		if err != nil {
+			http.Error(w, "invalid age", http.StatusBadRequest)
+			return
+		} else if mishapAge < 0 {
+			http.Error(w, "age must be a non-negative integer", http.StatusBadRequest)
+			return
+		}
+		mishapGV, err := strconv.Atoi(way.Param(r.Context(), "gv"))
+		if err != nil {
+			http.Error(w, "invalid gv", http.StatusBadRequest)
+			return
+		} else if mishapGV < 1 {
+			http.Error(w, "gv must be a positive integer", http.StatusBadRequest)
+			return
+		}
+		deltaX := fromX - toX
+		deltaY := fromY - toY
+		deltaZ := fromZ - toZ
+		mishapChance := 100 * (deltaX*deltaX + deltaY*deltaY + deltaZ*deltaZ) / mishapGV
+
+		if mishapChance > 10000 {
+			mishapChance = 10000
+		} else if mishapAge > 0 {
+			// Add aging effect
+			successChance := 10000 - mishapChance
+			successChance -= (2 * mishapAge * successChance) / 100
+			if successChance < 0 {
+				successChance = 0
+			}
+			mishapChance = 10000 - successChance
+		}
+		rsp := ports.MishapResponse{
+			Age:          mishapAge,
+			GV:           mishapGV,
+			MishapChance: float64(mishapChance)/100,
+		}
+		rsp.From.X = fromX
+		rsp.From.Y = fromY
+		rsp.From.Z = fromZ
+		rsp.To.X = toX
+		rsp.To.Y = toY
+		rsp.To.Z = toZ
+		jsonOk(w, r, rsp)
+	}
 }
 
 func (s *Server) handleGetPlanet() http.HandlerFunc {
@@ -118,6 +211,105 @@ func (s *Server) handleGetPlanets() http.HandlerFunc {
 	}
 }
 
+func (s *Server) handleGetSpecies() http.HandlerFunc {
+	return func(w http.ResponseWriter, r *http.Request) {
+		if s.ds == nil {
+			http.Error(w, http.StatusText(http.StatusInternalServerError), http.StatusInternalServerError)
+			return
+		}
+		id := way.Param(r.Context(), "id")
+		if id == "" {
+			id = "*"
+		}
+		type species struct {
+			Id   int    `json:"id"`
+			Name string `json:"name"`
+		}
+		var rsp []*species
+		for _, e := range s.ds.SpeciesMap(id) {
+			rsp = append(rsp, &species{
+				Id:   e.Id,
+				Name: e.Name,
+			})
+		}
+		if rsp == nil {
+			rsp = []*species{}
+		}
+		jsonOk(w, r, rsp)
+	}
+}
+
+func (s *Server) handleGetSystem() http.HandlerFunc {
+	return func(w http.ResponseWriter, r *http.Request) {
+		sess := handlers.GetSession(r)
+		if sess == nil || !sess.Authenticated {
+			http.Error(w, http.StatusText(http.StatusUnauthorized), http.StatusUnauthorized)
+			return
+		}
+		id := way.Param(r.Context(), "id")
+		rsp, err := s.jdb.GetSystem(id, sess.SpeciesId)
+		if err != nil {
+			http.Error(w, err.Error(), http.StatusInternalServerError)
+		}
+		jsonOk(w, r, rsp)
+	}
+}
+
+func (s *Server) handleGetSystems() http.HandlerFunc {
+	return func(w http.ResponseWriter, r *http.Request) {
+		sess := handlers.GetSession(r)
+		if sess == nil || !sess.Authenticated {
+			http.Error(w, http.StatusText(http.StatusUnauthorized), http.StatusUnauthorized)
+			return
+		}
+		rsp, err := s.jdb.GetSystems(sess.SpeciesId)
+		if err != nil {
+			http.Error(w, err.Error(), http.StatusInternalServerError)
+		}
+		jsonOk(w, r, rsp)
+	}
+}
+
+func (s *Server) handleGetTurn() http.HandlerFunc {
+	return func(w http.ResponseWriter, r *http.Request) {
+		sess := handlers.GetSession(r)
+		if sess == nil || !sess.Authenticated {
+			http.Error(w, http.StatusText(http.StatusUnauthorized), http.StatusUnauthorized)
+			return
+		}
+		rsp, err := s.jdb.GetTurnNumber()
+		if err != nil {
+			http.Error(w, err.Error(), http.StatusInternalServerError)
+		}
+		jsonOk(w, r, rsp)
+	}
+}
+
+func (s *Server) handleGetUser() http.HandlerFunc {
+	return func(w http.ResponseWriter, r *http.Request) {
+		sess := handlers.GetSession(r)
+		if sess == nil || !sess.Authenticated {
+			http.Error(w, http.StatusText(http.StatusUnauthorized), http.StatusUnauthorized)
+			return
+		}
+		rsp, err := s.jdb.GetUser(sess.SpeciesId)
+		if err != nil {
+			http.Error(w, err.Error(), http.StatusInternalServerError)
+		}
+		jsonOk(w, r, rsp)
+	}
+}
+
+func (s *Server) handleGetVersion() http.HandlerFunc {
+	return func(w http.ResponseWriter, r *http.Request) {
+		rsp, err := s.jdb.GetVersion()
+		if err != nil {
+			http.Error(w, err.Error(), http.StatusInternalServerError)
+		}
+		jsonOk(w, r, rsp)
+	}
+}
+
 func (s *Server) handleSave() http.HandlerFunc {
 	return func(w http.ResponseWriter, r *http.Request) {
 		if s.ds == nil {
@@ -126,35 +318,6 @@ func (s *Server) handleSave() http.HandlerFunc {
 		}
 		s.ds.Write(s.Data)
 		w.WriteHeader(http.StatusOK)
-	}
-}
-
-func (s *Server) handleGetSystem() http.HandlerFunc {
-	return func(w http.ResponseWriter, r *http.Request) {
-		if s.ds == nil {
-			http.Error(w, http.StatusText(http.StatusInternalServerError), http.StatusInternalServerError)
-			return
-		}
-		system, ok := s.ds.Systems[way.Param(r.Context(), "id")]
-		if !ok {
-			http.Error(w, http.StatusText(http.StatusNotFound), http.StatusNotFound)
-			return
-		} else if system == nil {
-			http.Error(w, http.StatusText(http.StatusInternalServerError), http.StatusInternalServerError)
-			return
-		}
-		jsonOk(w, r, s.helperGetSystems([]*store.System{system})[0])
-	}
-}
-
-func (s *Server) handleGetSystems() http.HandlerFunc {
-	return func(w http.ResponseWriter, r *http.Request) {
-		if s.ds == nil {
-			http.Error(w, http.StatusText(http.StatusInternalServerError), http.StatusInternalServerError)
-			return
-		}
-		rsp := s.helperGetSystems(s.ds.Sorted.Systems)
-		jsonOk(w, r, rsp)
 	}
 }
 
@@ -232,7 +395,7 @@ func (s *Server) helperGetSystems(all []*store.System) []*jSystem {
 				HomeWorld:                p.HomeWorld,
 				AvailablePopulationUnits: p.AvailablePopulationUnits,
 				EconomicEfficiency:       p.EconomicEfficiency,
-				Inventory: []*jItem{},
+				Inventory:                []*jItem{},
 				LSN:                      p.LSN,
 				MiningDifficulty:         p.MiningDifficulty,
 				ProductionPenalty:        p.ProductionPenalty,
@@ -251,7 +414,7 @@ func (s *Server) helperGetSystems(all []*store.System) []*jSystem {
 			}
 			for _, ship := range p.Ships {
 				js := &jShip{
-					Id: ship.Id,
+					Id:        ship.Id,
 					Inventory: []*jItem{},
 				}
 				jp.Ships = append(jp.Ships, js)

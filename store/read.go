@@ -42,6 +42,7 @@ func (ds *Store) Read(root string) error {
 	var data struct {
 		Species map[string]*rSpecies
 		Systems []*rSystem
+		Turn    int
 	}
 	b, err := ioutil.ReadFile(filename)
 	if err != nil {
@@ -115,6 +116,7 @@ func (ds *Store) Read(root string) error {
 	}
 
 	// move the data into our in-memory data structures
+	ds.Turn = data.Turn
 	for name, sp := range data.Species {
 		species := &Species{
 			Id:            sp.Id,
@@ -199,7 +201,7 @@ func (ds *Store) Read(root string) error {
 					Age:             ship.Age,
 					Capacity:        ship.Capacity,
 					FTL:             !ship.SubLight,
-					Inventory: make(map[string]*Item),
+					Inventory:       make(map[string]*Item),
 					Location:        ship.Location,
 					MaintenanceCost: ship.MaintenanceCost,
 				}
@@ -298,7 +300,7 @@ type rPlanet struct {
 
 type rShip struct {
 	Id              string            `json:"id"`
-	Age             int           `json:"age"`
+	Age             int               `json:"age"`
 	Location        string            `json:"location,omitempty"`
 	Capacity        int               `json:"capacity,omitempty"`
 	MaintenanceCost int               `json:"maintenance_cost,omitempty"`

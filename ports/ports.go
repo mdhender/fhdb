@@ -20,5 +20,49 @@
  * SOFTWARE.
  */
 
-package main
+package ports
 
+import "errors"
+
+var ErrInternalError = errors.New("internal error")
+var ErrNotFound = errors.New("not found")
+
+type Coords struct {
+	X int `json:"x"`
+	Y int `json:"y"`
+	Z int `json:"z"`
+}
+
+type MishapResponse struct {
+	From Coords `json:"from"`
+	To Coords `json:"to"`
+	Age int `json:"age"`
+	GV int `json:"gv"`
+	MishapChance float64 `json:"mishap_chance"`
+}
+
+type SystemResponse struct {
+	Id     int `json:"id"`
+	Coords Coords `json:"coords"`
+	Visited bool `json:"visited"`
+	Link string `json:"link"`
+}
+
+type SystemsResponse struct {
+	Id     int `json:"id"`
+	Coords Coords `json:"coords"`
+	Visited bool `json:"visited"`
+	Link string `json:"link"`
+}
+
+type TurnNumberResponse struct {
+	TurnNumber int `json:"turn_number"`
+}
+
+type UserResponse struct {
+	Id int `json:"id"`
+}
+
+type VersionResponse struct {
+	Version string `json:"version"`
+}

@@ -20,5 +20,16 @@
  * SOFTWARE.
  */
 
-package main
+package handlers
+
+import (
+	"net/http"
+)
+
+func Version(h http.Handler, v string) http.HandlerFunc {
+	return http.HandlerFunc(func(w http.ResponseWriter, r *http.Request) {
+		w.Header().Set("Far-Horizons", v)
+		h.ServeHTTP(w, r)
+	})
+}
 

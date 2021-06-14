@@ -26,6 +26,7 @@ type Store struct {
 	Planets map[string]*Planet
 	Species map[string]*Species
 	Systems map[string]*System
+	Turn    int
 	Sorted  struct {
 		Planets []*Planet
 		Species []*Species
@@ -65,7 +66,7 @@ type Planet struct {
 
 type Ship struct {
 	Id                 string
-	Code string
+	Code               string
 	Age                int
 	Location           string
 	Capacity           int
@@ -76,28 +77,20 @@ type Ship struct {
 	Landed             bool
 	MaintenanceCost    int
 	Orbiting           bool
-	MALevel int
+	MALevel            int
 	WithdrewFromCombat bool
 	Inventory          map[string]*Item
 }
 
 type Item struct {
-	Code         string
-	Location     string
-	Quantity     int
-}
-
-type Species struct {
-	Id            int
-	Name          string
-	EconomicUnits int
-	TechLevels    map[string]*TechLevel
+	Code     string
+	Location string
+	Quantity int
 }
 
 type TechLevel struct {
 	Value int
 }
-
 
 // Less is a helper for sorting
 func (s *System) Less(s2 *System) bool {

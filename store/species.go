@@ -20,5 +20,26 @@
  * SOFTWARE.
  */
 
-package main
+package store
 
+import "fmt"
+
+type Species struct {
+	Id            int
+	Name          string
+	EconomicUnits int
+	TechLevels    map[string]*TechLevel
+}
+
+func (ds *Store) SpeciesMap(id string) []*Species {
+	var result []*Species
+	for _, s := range ds.Sorted.Species {
+		if id == "*" || id == s.Name || id == fmt.Sprintf("%d", s.Id) || id == fmt.Sprintf("SP%d", s.Id) {
+			result = append(result, s)
+		}
+	}
+	if result == nil {
+		return []*Species{}
+	}
+	return result
+}

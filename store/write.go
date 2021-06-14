@@ -36,9 +36,11 @@ func (ds *Store) Write(root string) error {
 
 	// convert in-memory structures to json-file structures
 	var data struct {
+		Turn    int                  `json:"turn"`
 		Species map[string]*wSpecies `json:"species"`
 		Systems []*wSystem           `json:"systems"`
 	}
+	data.Turn = ds.Turn
 	data.Species = make(map[string]*wSpecies)
 	for _, s := range ds.Sorted.Species {
 		sp := &wSpecies{

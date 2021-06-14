@@ -20,5 +20,14 @@
  * SOFTWARE.
  */
 
-package main
+package jwt
 
+import "encoding/base64"
+
+func decode(raw string) (b []byte, err error) {
+	return base64.RawURLEncoding.DecodeString(raw)
+}
+
+func encode(b []byte) string {
+	return base64.RawURLEncoding.EncodeToString(b)
+}

@@ -20,5 +20,17 @@
  * SOFTWARE.
  */
 
-package main
+package jwt
+
+import "errors"
+
+var ErrBadFactory = errors.New("bad factory")
+var ErrBadRequest = errors.New("bad request")
+var ErrExpired = errors.New("expired")
+var ErrMissingAuthHeader = errors.New("missing auth header")
+var ErrMissingSigner = errors.New("missing signer")
+var ErrNotBearer = errors.New("not a bearer token")
+var ErrNotJWT = errors.New("not a jwt")
+var ErrUnauthorized = errors.New("unauthorized")
+
 

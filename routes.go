@@ -25,6 +25,7 @@ package main
 import (
 	"github.com/mdhender/fhdb/config"
 	"github.com/mdhender/fhdb/handlers"
+	"github.com/mdhender/fhdb/jwt"
 	"net/http"
 )
 
@@ -35,14 +36,30 @@ func (s *Server) Routes(cfg *config.Config) error {
 		pattern string
 		handler http.HandlerFunc
 	}{
-		{"GET", "/api/planets", s.handleGetPlanets()},
-		{"GET", "/api/planets/:id", s.handleGetPlanet()},
-		{"GET", "/api/flush", s.handleSave()},
-		{"GET", "/api/systems", s.handleGetSystems()},
-		{"GET", "/api/systems/:id", s.handleGetSystem()},
+		{"GET", "/api/calc/mishap/:from/:to/:age/:gv", s.handleCalcMishap()},
+		{"GET", "/api/version", s.handleGetVersion()},
 	} {
-		s.Router.HandleFunc(route.method, route.pattern, mwCORS(route.handler))
+		s.Router.HandleFunc(route.method, route.pattern, route.handler)
 	}
-	s.Router.NotFound = handlers.Static("/", cfg.Server.Web.Root, true, true)
+	for _, route := range []struct {
+		method  string
+		pattern string
+		handler http.HandlerFunc
+	}{
+		{"GET", "/api/flush", s.handleSave()},
+		{"GET", "/api/planet/:id", s.handleGetPlanet()},
+		{"GET", "/api/planets", s.handleGetPlanets()},
+		{"GET", "/api/species", s.handleGetSpecies()},
+		{"GET", "/api/species/:id", s.handleGetSpecies()},
+		{"GET", "/api/system/:id", s.handleGetSystem()},
+		{"GET", "/api/systems", s.handleGetSystems()},
+		{"GET", "/api/turn", s.handleGetTurn()},
+		{"GET", "/api/user", s.handleGetUser()},
+	} {
+		s.Router.HandleFunc(route.method, route.pattern, handlers.Authenticate(route.handler, jwt.NewFactory(cfg.Server.JWT.Key)))
+	}
+	//s.Router.NotFound = handlers.Static("/", cfg.Server.Web.Root, true, true)
 	return nil
 }
+
+// 	s.Handler = mwCORS(handlers.Authenticate(mwVersion(s.Router, s.jdb.Version), jwt.NewFactory(cfg.Server.JWT.Key)))

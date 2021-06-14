@@ -25,12 +25,14 @@ package main
 import (
 	"fmt"
 	"github.com/mdhender/fhdb/config"
-	"github.com/mdhender/fhdb/store"
+	"github.com/mdhender/fhdb/handlers"
+	"github.com/mdhender/fhdb/store/jsondb"
 	"github.com/mdhender/fhdb/way"
 	"log"
 	"mime"
 	"net"
 	"os"
+	"path/filepath"
 )
 
 func main() {
@@ -58,6 +60,9 @@ func run(cfg *config.Config) error {
 	if cfg == nil {
 		return fmt.Errorf("missing configuration information")
 	}
+	if cfg.Server.JWT.Key == "" || len(cfg.Server.JWT.Key) < 16 {
+		return fmt.Errorf("jwt key length should be at least 16")
+	}
 
 	s := &Server{
 		Router: way.NewRouter(),
@@ -67,12 +72,17 @@ func run(cfg *config.Config) error {
 	s.ReadTimeout = cfg.Server.Timeout.Read
 	s.WriteTimeout = cfg.Server.Timeout.Write
 	s.MaxHeaderBytes = 1 << 20 // TODO: make this configurable
-	s.Handler = s.Router
 	s.Data = cfg.Data
-	s.ds = &store.Store{}
-	if err := s.ds.Read(s.Data); err != nil {
+	var err error
+	s.jdb, err = jsondb.Read(filepath.Join(cfg.Data, "galaxy.json"))
+	if err != nil {
 		return err
 	}
+	s.Handler = handlers.CORS(handlers.Version(s.Router, s.jdb.Version))
+	//err = s.jdb.Write(filepath.Join(cfg.Data, "cluster.json"))
+	//if err != nil {
+	//	return err
+	//}
 
 	if err := s.Routes(cfg); err != nil {
 		return err

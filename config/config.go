@@ -44,6 +44,9 @@ type Config struct {
 			Read  time.Duration
 			Write time.Duration
 		}
+		JWT struct {
+			Key string
+		}
 		TLS struct {
 			Serve    bool
 			CertFile string
@@ -83,6 +86,7 @@ func (cfg *Config) Load() error {
 	serverScheme := fs.String("scheme", cfg.Server.Scheme, "http scheme, either 'http' or 'https'")
 	serverHost := fs.String("host", cfg.Server.Host, "host name (or IP) to listen on")
 	serverPort := fs.Int("port", cfg.Server.Port, "port to listen on")
+	serverJWTKey := fs.String("jwt-key", cfg.Server.JWT.Key, "jwt hs256 key")
 	serverTimeoutIdle := fs.Duration("idle-timeout", cfg.Server.Timeout.Idle, "http idle timeout")
 	serverTimeoutRead := fs.Duration("read-timeout", cfg.Server.Timeout.Read, "http read timeout")
 	serverTimeoutWrite := fs.Duration("write-timeout", cfg.Server.Timeout.Write, "http write timeout")
@@ -100,6 +104,7 @@ func (cfg *Config) Load() error {
 	cfg.Server.Scheme = *serverScheme
 	cfg.Server.Host = *serverHost
 	cfg.Server.Port = *serverPort
+	cfg.Server.JWT.Key = *serverJWTKey
 	cfg.Server.Timeout.Idle = *serverTimeoutIdle
 	cfg.Server.Timeout.Read = *serverTimeoutRead
 	cfg.Server.Timeout.Write = *serverTimeoutWrite

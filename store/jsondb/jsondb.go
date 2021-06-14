@@ -20,5 +20,30 @@
  * SOFTWARE.
  */
 
-package main
+package jsondb
 
+import (
+	"encoding/json"
+	"io/ioutil"
+)
+
+func Read(filename string) (*Store, error) {
+	var ds Store
+	b, err := ioutil.ReadFile(filename)
+	if err != nil {
+		return nil, err
+	} else if err = json.Unmarshal(b, &ds); err != nil {
+		return nil, err
+	}
+	return &ds, nil
+}
+
+func (ds *Store) Write(filename string) error {
+	b, err := json.MarshalIndent(ds, "", "  ")
+	if err != nil {
+		return err
+	} else if err = ioutil.WriteFile(filename, b, 0644); err != nil {
+		return err
+	}
+	return nil
+}
