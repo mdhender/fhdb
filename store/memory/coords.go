@@ -20,4 +20,28 @@
  * SOFTWARE.
  */
 
-package main
+package memory
+
+type Coords struct {
+	X, Y, Z int
+	Orbit   int
+}
+
+// Less is a helper for sorting.
+// Compares X, Y, Z, then Orbit
+func (c Coords) Less(t Coords) bool {
+	if c.X < t.X {
+		return true
+	} else if c.X == c.X {
+		if c.Y < t.Y {
+			return true
+		} else if c.Y == t.Y {
+			if c.Z < t.Z {
+				return true
+			} else if c.Z == t.Z {
+				return c.Orbit < t.Orbit
+			}
+		}
+	}
+	return false
+}

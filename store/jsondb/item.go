@@ -20,4 +20,11 @@
  * SOFTWARE.
  */
 
-package main
+package jsondb
+
+type Item struct {
+	Name      string         `json:"name"`
+	Cost      int            `json:"cost"`
+	Tech      map[string]int `json:"tech"`
+	CarryCost int            `json:"carry_cost"`
+}

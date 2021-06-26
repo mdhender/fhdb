@@ -20,4 +20,17 @@
  * SOFTWARE.
  */
 
-package main
+package jsondb
+
+type Planet struct {
+	Id               int            `json:"id"`
+	TemperatureClass int            `json:"temperature_class"`
+	PressureClass    int            `json:"pressure_class"`
+	Gases            map[string]int `json:"gases"`
+	Diameter         int            `json:"diameter"`
+	Gravity          int            `json:"gravity"`
+	MiningDifficulty int            `json:"mining_difficulty"`
+	EconEfficiency   int            `json:"econ_efficiency"`
+	MdIncrease       int            `json:"md_increase"`
+	Message          int            `json:"message"`
+}

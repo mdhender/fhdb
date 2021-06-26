@@ -32,4 +32,3 @@ func Version(h http.Handler, v string) http.HandlerFunc {
 		h.ServeHTTP(w, r)
 	})
 }
-

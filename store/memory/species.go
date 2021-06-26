@@ -20,4 +20,52 @@
  * SOFTWARE.
  */
 
-package main
+package memory
+
+type Species struct {
+	Id                  int
+	Name                string
+	AutoOrders          bool
+	BankedEconomicUnits int
+	FleetCost           int
+	FleetPercentCost    float64
+	Government          struct {
+		Name string
+		Type string
+	}
+	Homeworld struct {
+		Colony       *Colony
+		OriginalBase int
+	}
+	Relationships map[int]Relationship
+	Tech          map[string]*Tech
+}
+
+type Relationship int
+
+const (
+	None Relationship = iota
+	Ally
+	Enemy
+	Neutral
+)
+
+type Tech struct {
+	Level     int
+	Init      int
+	Knowledge int
+	BankedXp  int
+}
+
+//func (ds *Store) SpeciesMap(id string) []*Species {
+//	var result []*Species
+//	for _, s := range ds.Sorted.Species {
+//		if id == "*" || id == s.Name || id == fmt.Sprintf("%d", s.Id) || id == fmt.Sprintf("SP%d", s.Id) {
+//			result = append(result, s)
+//		}
+//	}
+//	if result == nil {
+//		return []*Species{}
+//	}
+//	return result
+//}

@@ -75,5 +75,3 @@ func FromHeader(r *http.Request) (*JWT, error) {
 
 	return &j, nil
 }
-
-

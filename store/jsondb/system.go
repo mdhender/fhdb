@@ -20,4 +20,17 @@
  * SOFTWARE.
  */
 
-package main
+package jsondb
+
+type System struct {
+	Id         int      `json:"id"`
+	Key        string   `json:"key"`
+	Coords     Coords   `json:"coords"`
+	Type       string   `json:"type"`
+	Color      string   `json:"color"`
+	Size       int      `json:"size"`
+	HomeSystem bool     `json:"home_system"`
+	Planets    []int    `json:"planets"`
+	VisitedBy  []string `json:"visited_by"`
+	Message    int      `json:"message"`
+}

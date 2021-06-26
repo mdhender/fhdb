@@ -25,7 +25,6 @@ package handlers
 import (
 	"context"
 	"github.com/mdhender/fhdb/jwt"
-	"log"
 	"net/http"
 )
 
@@ -34,8 +33,8 @@ type fhContextKey string
 
 type Session struct {
 	Authenticated bool
-	SpeciesId int
-	Roles map[string]bool
+	SpeciesId     int
+	Roles         map[string]bool
 }
 
 func GetSession(r *http.Request) *Session {
@@ -58,8 +57,8 @@ func Authenticate(h http.HandlerFunc, f jwt.Factory) http.HandlerFunc {
 
 		s := &Session{
 			Authenticated: true,
-			SpeciesId: j.Data().Id,
-			Roles: make(map[string]bool),
+			SpeciesId:     j.Data().Id,
+			Roles:         make(map[string]bool),
 		}
 		for _, rr := range j.Data().Roles {
 			s.Roles[rr] = true
@@ -67,9 +66,6 @@ func Authenticate(h http.HandlerFunc, f jwt.Factory) http.HandlerFunc {
 
 		// valid session, so inject ourselves into the context.
 		ctx := context.WithValue(r.Context(), fhContextKey("session"), s)
-
-		log.Println("mwAuthenticate passed")
-		log.Println(h)
 
 		// Propagate the incoming context.
 		h.ServeHTTP(w, r.WithContext(ctx))

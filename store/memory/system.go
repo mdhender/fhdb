@@ -20,30 +20,22 @@
  * SOFTWARE.
  */
 
-package jsondb
+package memory
 
-import (
-	"encoding/json"
-	"io/ioutil"
-)
-
-func Read(filename string) (*Store, error) {
-	var ds Store
-	b, err := ioutil.ReadFile(filename)
-	if err != nil {
-		return nil, err
-	} else if err = json.Unmarshal(b, &ds); err != nil {
-		return nil, err
-	}
-	return &ds, nil
+type System struct {
+	Id      string
+	Coords  Coords
+	Planets []*Planet
+	Ships   []*Ship
 }
 
-func (ds *Store) Write(filename string) error {
-	b, err := json.MarshalIndent(ds, "", "  ")
-	if err != nil {
-		return err
-	} else if err = ioutil.WriteFile(filename, b, 0644); err != nil {
-		return err
-	}
-	return nil
+// Less is a helper for sorting
+func (s *System) Less(s2 *System) bool {
+	return s.Coords.Less(s2.Coords)
+}
+
+// TaggedAsVisited checks to see if the player manually tagged the system as visited.
+func (s *System) TaggedAsVisited() bool {
+	panic("!implemented")
+	//return s.Visited && s.Scanned == 0
 }

@@ -1,7 +1,7 @@
 {
-	"version": "7.5.0",
+	"version": "7.5.1",
 	"galaxy": {
-		"turn_number": 5,
+		"turn_number": 7,
 		"d_num_species": 27,
 		"num_species": 18,
 		"radius": 25,
@@ -52,6 +52,7 @@
 			"color": "WHITE",
 			"size": 1,
 			"planets": [9, 10, 11, 12, 13, 14],
+			"visited_by": ["SP01"],
 			"message": 0
 		},
 		{
@@ -63,6 +64,7 @@
 			"size": 8,
 			"worm": {"x": 39, "y": 19, "z": 28},
 			"planets": [15, 16, 17],
+			"visited_by": ["SP01"],
 			"message": 0
 		},
 		{
@@ -74,6 +76,7 @@
 			"size": 7,
 			"worm": {"x": 44, "y": 21, "z": 28},
 			"planets": [18],
+			"visited_by": [],
 			"message": 0
 		},
 		{
@@ -84,6 +87,7 @@
 			"color": "BLUE",
 			"size": 4,
 			"planets": [19],
+			"visited_by": [],
 			"message": 0
 		},
 		{
@@ -94,6 +98,7 @@
 			"color": "BLUE",
 			"size": 0,
 			"planets": [20, 21, 22, 23, 24, 25, 26, 27],
+			"visited_by": [],
 			"message": 0
 		},
 		{
@@ -105,6 +110,7 @@
 			"size": 8,
 			"worm": {"x": 32, "y": 9, "z": 23},
 			"planets": [28, 29],
+			"visited_by": ["SP01"],
 			"message": 0
 		},
 		{
@@ -127,6 +133,7 @@
 			"size": 2,
 			"worm": {"x": 15, "y": 35, "z": 9},
 			"planets": [31, 32],
+			"visited_by": [],
 			"message": 0
 		},
 		{
@@ -137,6 +144,7 @@
 			"color": "BLUE_WHITE",
 			"size": 6,
 			"planets": [33, 34, 35, 36, 37, 38, 39],
+			"visited_by": [],
 			"message": 0
 		},
 		{
@@ -147,6 +155,7 @@
 			"color": "YELLOW",
 			"size": 3,
 			"planets": [40, 41, 42, 43],
+			"visited_by": [],
 			"message": 0
 		},
 		{
@@ -158,6 +167,7 @@
 			"size": 8,
 			"worm": {"x": 26, "y": 30, "z": 6},
 			"planets": [44, 45, 46, 47],
+			"visited_by": ["SP01"],
 			"message": 0
 		},
 		{
@@ -168,6 +178,7 @@
 			"color": "RED",
 			"size": 5,
 			"planets": [48],
+			"visited_by": [],
 			"message": 0
 		},
 		{
@@ -202,6 +213,7 @@
 			"color": "ORANGE",
 			"size": 7,
 			"planets": [61, 62],
+			"visited_by": [],
 			"message": 0
 		},
 		{
@@ -236,6 +248,7 @@
 			"size": 4,
 			"worm": {"x": 42, "y": 34, "z": 32},
 			"planets": [78, 79, 80, 81, 82, 83, 84, 85, 86],
+			"visited_by": [],
 			"message": 0
 		},
 		{
@@ -246,6 +259,7 @@
 			"color": "BLUE_WHITE",
 			"size": 6,
 			"planets": [87, 88, 89, 90, 91, 92, 93],
+			"visited_by": [],
 			"message": 0
 		},
 		{
@@ -268,6 +282,7 @@
 			"color": "YELLOW",
 			"size": 6,
 			"planets": [98, 99, 100, 101],
+			"visited_by": ["SP08"],
 			"message": 0
 		},
 		{
@@ -278,6 +293,7 @@
 			"color": "ORANGE",
 			"size": 3,
 			"planets": [102, 103, 104],
+			"visited_by": ["SP08"],
 			"message": 0
 		},
 		{
@@ -300,6 +316,7 @@
 			"color": "YELLOW_WHITE",
 			"size": 1,
 			"planets": [114],
+			"visited_by": [],
 			"message": 0
 		},
 		{
@@ -311,6 +328,7 @@
 			"size": 8,
 			"worm": {"x": 13, "y": 12, "z": 30},
 			"planets": [115, 116, 117, 118, 119, 120, 121, 122],
+			"visited_by": [],
 			"message": 0
 		},
 		{
@@ -321,6 +339,7 @@
 			"color": "RED",
 			"size": 3,
 			"planets": [123, 124],
+			"visited_by": [],
 			"message": 0
 		},
 		{
@@ -332,6 +351,7 @@
 			"size": 2,
 			"worm": {"x": 12, "y": 45, "z": 20},
 			"planets": [125],
+			"visited_by": ["SP13"],
 			"message": 0
 		},
 		{
@@ -342,6 +362,7 @@
 			"color": "ORANGE",
 			"size": 7,
 			"planets": [126, 127, 128],
+			"visited_by": [],
 			"message": 0
 		},
 		{
@@ -352,6 +373,7 @@
 			"color": "BLUE",
 			"size": 7,
 			"planets": [129],
+			"visited_by": [],
 			"message": 0
 		},
 		{
@@ -362,6 +384,7 @@
 			"color": "YELLOW_WHITE",
 			"size": 4,
 			"planets": [130, 131, 132, 133, 134],
+			"visited_by": [],
 			"message": 0
 		},
 		{
@@ -372,6 +395,7 @@
 			"color": "ORANGE",
 			"size": 7,
 			"planets": [135, 136],
+			"visited_by": [],
 			"message": 0
 		},
 		{
@@ -383,6 +407,7 @@
 			"size": 3,
 			"worm": {"x": 8, "y": 17, "z": 19},
 			"planets": [137, 138, 139, 140, 141, 142, 143, 144],
+			"visited_by": [],
 			"message": 0
 		},
 		{
@@ -394,6 +419,7 @@
 			"size": 1,
 			"worm": {"x": 41, "y": 18, "z": 9},
 			"planets": [145],
+			"visited_by": [],
 			"message": 0
 		},
 		{
@@ -404,6 +430,7 @@
 			"color": "BLUE_WHITE",
 			"size": 7,
 			"planets": [146, 147, 148, 149],
+			"visited_by": ["SP08"],
 			"message": 0
 		},
 		{
@@ -415,6 +442,7 @@
 			"size": 4,
 			"worm": {"x": 24, "y": 4, "z": 14},
 			"planets": [150, 151],
+			"visited_by": [],
 			"message": 0
 		},
 		{
@@ -425,6 +453,7 @@
 			"color": "WHITE",
 			"size": 3,
 			"planets": [152],
+			"visited_by": [],
 			"message": 0
 		},
 		{
@@ -446,6 +475,7 @@
 			"color": "BLUE_WHITE",
 			"size": 1,
 			"planets": [154, 155, 156, 157, 158, 159, 160, 161],
+			"visited_by": [],
 			"message": 0
 		},
 		{
@@ -468,6 +498,7 @@
 			"color": "BLUE",
 			"size": 8,
 			"planets": [168, 169, 170, 171],
+			"visited_by": ["SP15"],
 			"message": 0
 		},
 		{
@@ -478,6 +509,7 @@
 			"color": "BLUE_WHITE",
 			"size": 9,
 			"planets": [172, 173],
+			"visited_by": [],
 			"message": 0
 		},
 		{
@@ -499,6 +531,7 @@
 			"color": "YELLOW_WHITE",
 			"size": 2,
 			"planets": [176],
+			"visited_by": ["SP05"],
 			"message": 0
 		},
 		{
@@ -509,6 +542,7 @@
 			"color": "ORANGE",
 			"size": 0,
 			"planets": [177],
+			"visited_by": [],
 			"message": 0
 		},
 		{
@@ -519,6 +553,7 @@
 			"color": "YELLOW",
 			"size": 6,
 			"planets": [178, 179, 180, 181, 182],
+			"visited_by": [],
 			"message": 0
 		},
 		{
@@ -529,6 +564,7 @@
 			"color": "BLUE",
 			"size": 1,
 			"planets": [183, 184, 185, 186, 187, 188, 189, 190],
+			"visited_by": [],
 			"message": 0
 		},
 		{
@@ -552,6 +588,7 @@
 			"size": 9,
 			"worm": {"x": 38, "y": 15, "z": 32},
 			"planets": [194, 195, 196, 197, 198, 199, 200],
+			"visited_by": [],
 			"message": 0
 		},
 		{
@@ -575,6 +612,7 @@
 			"size": 6,
 			"worm": {"x": 39, "y": 6, "z": 32},
 			"planets": [206, 207, 208, 209],
+			"visited_by": ["SP08"],
 			"message": 0
 		},
 		{
@@ -585,6 +623,7 @@
 			"color": "YELLOW",
 			"size": 2,
 			"planets": [210],
+			"visited_by": ["SP04"],
 			"message": 0
 		},
 		{
@@ -607,6 +646,7 @@
 			"color": "ORANGE",
 			"size": 8,
 			"planets": [218],
+			"visited_by": [],
 			"message": 0
 		},
 		{
@@ -617,6 +657,7 @@
 			"color": "YELLOW_WHITE",
 			"size": 9,
 			"planets": [219, 220],
+			"visited_by": [],
 			"message": 0
 		},
 		{
@@ -628,7 +669,7 @@
 			"size": 3,
 			"home_system": true,
 			"planets": [221, 222, 223, 224, 225, 226, 227, 228],
-			"visited_by": ["SP10"],
+			"visited_by": ["SP05", "SP10"],
 			"message": 0
 		},
 		{
@@ -640,7 +681,7 @@
 			"size": 7,
 			"home_system": true,
 			"planets": [229, 230, 231, 232, 233],
-			"visited_by": ["SP04"],
+			"visited_by": ["SP04", "SP08"],
 			"message": 0
 		},
 		{
@@ -651,6 +692,7 @@
 			"color": "ORANGE",
 			"size": 6,
 			"planets": [234],
+			"visited_by": [],
 			"message": 0
 		},
 		{
@@ -673,6 +715,7 @@
 			"color": "YELLOW_WHITE",
 			"size": 9,
 			"planets": [242, 243, 244, 245, 246, 247, 248],
+			"visited_by": [],
 			"message": 0
 		},
 		{
@@ -683,6 +726,7 @@
 			"color": "WHITE",
 			"size": 4,
 			"planets": [249, 250, 251, 252, 253],
+			"visited_by": [],
 			"message": 0
 		},
 		{
@@ -693,7 +737,7 @@
 			"color": "BLUE",
 			"size": 3,
 			"planets": [254, 255, 256, 257, 258, 259, 260, 261, 262],
-			"visited_by": ["SP04"],
+			"visited_by": ["SP04", "SP08"],
 			"message": 0
 		},
 		{
@@ -704,7 +748,7 @@
 			"color": "YELLOW_WHITE",
 			"size": 3,
 			"planets": [263, 264],
-			"visited_by": ["SP08"],
+			"visited_by": ["SP04", "SP08"],
 			"message": 0
 		},
 		{
@@ -715,6 +759,7 @@
 			"color": "BLUE_WHITE",
 			"size": 7,
 			"planets": [265],
+			"visited_by": ["SP05"],
 			"message": 0
 		},
 		{
@@ -736,6 +781,7 @@
 			"color": "RED",
 			"size": 4,
 			"planets": [271],
+			"visited_by": [],
 			"message": 0
 		},
 		{
@@ -757,6 +803,7 @@
 			"color": "YELLOW",
 			"size": 7,
 			"planets": [274, 275, 276, 277],
+			"visited_by": [],
 			"message": 0
 		},
 		{
@@ -768,6 +815,7 @@
 			"size": 7,
 			"worm": {"x": 16, "y": 38, "z": 21},
 			"planets": [278, 279, 280, 281, 282, 283, 284, 285],
+			"visited_by": [],
 			"message": 0
 		},
 		{
@@ -789,6 +837,7 @@
 			"color": "ORANGE",
 			"size": 2,
 			"planets": [288, 289],
+			"visited_by": [],
 			"message": 0
 		},
 		{
@@ -810,6 +859,7 @@
 			"color": "YELLOW_WHITE",
 			"size": 8,
 			"planets": [292, 293],
+			"visited_by": [],
 			"message": 0
 		},
 		{
@@ -820,6 +870,7 @@
 			"color": "BLUE_WHITE",
 			"size": 2,
 			"planets": [294, 295, 296, 297, 298, 299],
+			"visited_by": [],
 			"message": 0
 		},
 		{
@@ -830,6 +881,7 @@
 			"color": "WHITE",
 			"size": 1,
 			"planets": [300, 301, 302],
+			"visited_by": ["SP15"],
 			"message": 0
 		},
 		{
@@ -851,6 +903,7 @@
 			"color": "BLUE_WHITE",
 			"size": 8,
 			"planets": [306],
+			"visited_by": [],
 			"message": 0
 		},
 		{
@@ -872,6 +925,7 @@
 			"color": "YELLOW_WHITE",
 			"size": 2,
 			"planets": [311, 312, 313, 314],
+			"visited_by": [],
 			"message": 0
 		},
 		{
@@ -883,6 +937,7 @@
 			"size": 1,
 			"worm": {"x": 9, "y": 20, "z": 39},
 			"planets": [315, 316],
+			"visited_by": [],
 			"message": 0
 		},
 		{
@@ -893,6 +948,7 @@
 			"color": "YELLOW",
 			"size": 5,
 			"planets": [317, 318, 319],
+			"visited_by": ["SP08"],
 			"message": 0
 		},
 		{
@@ -915,6 +971,7 @@
 			"size": 7,
 			"worm": {"x": 39, "y": 30, "z": 27},
 			"planets": [321],
+			"visited_by": [],
 			"message": 0
 		},
 		{
@@ -925,6 +982,7 @@
 			"color": "YELLOW",
 			"size": 7,
 			"planets": [322, 323, 324],
+			"visited_by": [],
 			"message": 0
 		},
 		{
@@ -935,6 +993,7 @@
 			"color": "BLUE_WHITE",
 			"size": 6,
 			"planets": [325, 326, 327, 328, 329, 330, 331, 332, 333],
+			"visited_by": [],
 			"message": 0
 		},
 		{
@@ -945,6 +1004,7 @@
 			"color": "BLUE",
 			"size": 0,
 			"planets": [334, 335, 336, 337, 338],
+			"visited_by": [],
 			"message": 0
 		},
 		{
@@ -955,6 +1015,7 @@
 			"color": "ORANGE",
 			"size": 6,
 			"planets": [339],
+			"visited_by": [],
 			"message": 0
 		},
 		{
@@ -965,6 +1026,7 @@
 			"color": "ORANGE",
 			"size": 4,
 			"planets": [340, 341, 342, 343],
+			"visited_by": [],
 			"message": 0
 		},
 		{
@@ -975,6 +1037,7 @@
 			"color": "YELLOW_WHITE",
 			"size": 1,
 			"planets": [344, 345, 346, 347, 348, 349, 350, 351],
+			"visited_by": [],
 			"message": 0
 		},
 		{
@@ -985,6 +1048,7 @@
 			"color": "ORANGE",
 			"size": 4,
 			"planets": [352],
+			"visited_by": [],
 			"message": 0
 		},
 		{
@@ -995,6 +1059,7 @@
 			"color": "BLUE",
 			"size": 1,
 			"planets": [353, 354, 355, 356],
+			"visited_by": [],
 			"message": 0
 		},
 		{
@@ -1005,6 +1070,7 @@
 			"color": "WHITE",
 			"size": 9,
 			"planets": [357, 358],
+			"visited_by": [],
 			"message": 0
 		},
 		{
@@ -1015,6 +1081,7 @@
 			"color": "ORANGE",
 			"size": 4,
 			"planets": [359],
+			"visited_by": [],
 			"message": 0
 		},
 		{
@@ -1036,6 +1103,7 @@
 			"color": "YELLOW",
 			"size": 2,
 			"planets": [361, 362],
+			"visited_by": [],
 			"message": 0
 		},
 		{
@@ -1047,6 +1115,7 @@
 			"size": 4,
 			"worm": {"x": 20, "y": 9, "z": 37},
 			"planets": [363, 364, 365, 366],
+			"visited_by": ["SP05"],
 			"message": 0
 		},
 		{
@@ -1057,6 +1126,7 @@
 			"color": "YELLOW_WHITE",
 			"size": 2,
 			"planets": [367, 368],
+			"visited_by": [],
 			"message": 0
 		},
 		{
@@ -1067,6 +1137,7 @@
 			"color": "YELLOW",
 			"size": 0,
 			"planets": [369, 370, 371, 372],
+			"visited_by": [],
 			"message": 0
 		},
 		{
@@ -1077,6 +1148,7 @@
 			"color": "YELLOW",
 			"size": 5,
 			"planets": [373],
+			"visited_by": [],
 			"message": 0
 		},
 		{
@@ -1099,6 +1171,7 @@
 			"color": "BLUE_WHITE",
 			"size": 1,
 			"planets": [377, 378, 379, 380, 381, 382, 383, 384, 385],
+			"visited_by": [],
 			"message": 0
 		},
 		{
@@ -1109,6 +1182,7 @@
 			"color": "YELLOW_WHITE",
 			"size": 2,
 			"planets": [386, 387, 388, 389, 390, 391, 392],
+			"visited_by": [],
 			"message": 0
 		},
 		{
@@ -1119,6 +1193,7 @@
 			"color": "WHITE",
 			"size": 0,
 			"planets": [393, 394, 395, 396, 397, 398],
+			"visited_by": ["SP05"],
 			"message": 0
 		},
 		{
@@ -1129,6 +1204,7 @@
 			"color": "ORANGE",
 			"size": 7,
 			"planets": [399, 400],
+			"visited_by": ["SP04"],
 			"message": 0
 		},
 		{
@@ -1140,6 +1216,7 @@
 			"size": 0,
 			"worm": {"x": 7, "y": 15, "z": 38},
 			"planets": [401],
+			"visited_by": [],
 			"message": 0
 		},
 		{
@@ -1150,6 +1227,7 @@
 			"color": "RED",
 			"size": 1,
 			"planets": [402, 403],
+			"visited_by": ["SP05"],
 			"message": 0
 		},
 		{
@@ -1160,6 +1238,7 @@
 			"color": "RED",
 			"size": 8,
 			"planets": [404],
+			"visited_by": ["SP16"],
 			"message": 0
 		},
 		{
@@ -1182,6 +1261,7 @@
 			"color": "BLUE_WHITE",
 			"size": 0,
 			"planets": [410, 411, 412, 413, 414, 415, 416],
+			"visited_by": [],
 			"message": 0
 		},
 		{
@@ -1192,6 +1272,7 @@
 			"color": "BLUE_WHITE",
 			"size": 2,
 			"planets": [417, 418, 419, 420, 421, 422, 423, 424],
+			"visited_by": [],
 			"message": 0
 		},
 		{
@@ -1203,6 +1284,7 @@
 			"size": 6,
 			"worm": {"x": 43, "y": 32, "z": 37},
 			"planets": [425],
+			"visited_by": ["SP11"],
 			"message": 0
 		},
 		{
@@ -1213,6 +1295,7 @@
 			"color": "BLUE",
 			"size": 8,
 			"planets": [426, 427, 428, 429, 430, 431, 432, 433],
+			"visited_by": [],
 			"message": 0
 		},
 		{
@@ -1223,6 +1306,7 @@
 			"color": "YELLOW_WHITE",
 			"size": 5,
 			"planets": [434],
+			"visited_by": ["SP16"],
 			"message": 0
 		},
 		{
@@ -1244,6 +1328,7 @@
 			"color": "BLUE_WHITE",
 			"size": 2,
 			"planets": [442, 443, 444, 445, 446, 447, 448],
+			"visited_by": [],
 			"message": 0
 		},
 		{
@@ -1254,6 +1339,7 @@
 			"color": "BLUE",
 			"size": 8,
 			"planets": [449, 450, 451, 452, 453, 454, 455],
+			"visited_by": ["SP05"],
 			"message": 0
 		},
 		{
@@ -1276,6 +1362,7 @@
 			"color": "YELLOW",
 			"size": 3,
 			"planets": [460],
+			"visited_by": ["SP11"],
 			"message": 0
 		},
 		{
@@ -1286,6 +1373,7 @@
 			"color": "RED",
 			"size": 2,
 			"planets": [461],
+			"visited_by": [],
 			"message": 0
 		},
 		{
@@ -1296,6 +1384,7 @@
 			"color": "BLUE_WHITE",
 			"size": 5,
 			"planets": [462, 463, 464, 465, 466, 467, 468],
+			"visited_by": [],
 			"message": 0
 		},
 		{
@@ -1306,6 +1395,7 @@
 			"color": "BLUE",
 			"size": 5,
 			"planets": [469, 470, 471, 472, 473],
+			"visited_by": [],
 			"message": 0
 		},
 		{
@@ -1316,6 +1406,7 @@
 			"color": "YELLOW",
 			"size": 2,
 			"planets": [474, 475, 476, 477, 478],
+			"visited_by": [],
 			"message": 0
 		},
 		{
@@ -1326,6 +1417,7 @@
 			"color": "RED",
 			"size": 3,
 			"planets": [479],
+			"visited_by": [],
 			"message": 0
 		},
 		{
@@ -1336,6 +1428,7 @@
 			"color": "RED",
 			"size": 0,
 			"planets": [480],
+			"visited_by": [],
 			"message": 0
 		},
 		{
@@ -1346,6 +1439,7 @@
 			"color": "YELLOW",
 			"size": 9,
 			"planets": [481, 482],
+			"visited_by": [],
 			"message": 0
 		},
 		{
@@ -1356,6 +1450,7 @@
 			"color": "WHITE",
 			"size": 7,
 			"planets": [483, 484, 485],
+			"visited_by": [],
 			"message": 0
 		},
 		{
@@ -1366,6 +1461,7 @@
 			"color": "YELLOW",
 			"size": 3,
 			"planets": [486, 487],
+			"visited_by": [],
 			"message": 0
 		},
 		{
@@ -1399,6 +1495,7 @@
 			"color": "WHITE",
 			"size": 8,
 			"planets": [494, 495, 496, 497, 498],
+			"visited_by": [],
 			"message": 0
 		},
 		{
@@ -1409,6 +1506,7 @@
 			"color": "WHITE",
 			"size": 0,
 			"planets": [499, 500],
+			"visited_by": [],
 			"message": 0
 		},
 		{
@@ -1419,6 +1517,7 @@
 			"color": "BLUE",
 			"size": 3,
 			"planets": [501, 502, 503, 504, 505, 506, 507, 508, 509],
+			"visited_by": [],
 			"message": 0
 		},
 		{
@@ -1430,6 +1529,7 @@
 			"size": 3,
 			"worm": {"x": 19, "y": 43, "z": 12},
 			"planets": [510, 511, 512, 513, 514, 515],
+			"visited_by": [],
 			"message": 0
 		},
 		{
@@ -1441,6 +1541,7 @@
 			"size": 5,
 			"worm": {"x": 20, "y": 18, "z": 42},
 			"planets": [516],
+			"visited_by": [],
 			"message": 0
 		},
 		{
@@ -1451,6 +1552,7 @@
 			"color": "BLUE",
 			"size": 2,
 			"planets": [517, 518, 519, 520, 521, 522, 523],
+			"visited_by": [],
 			"message": 0
 		},
 		{
@@ -1462,6 +1564,7 @@
 			"size": 6,
 			"worm": {"x": 2, "y": 27, "z": 22},
 			"planets": [524, 525, 526, 527, 528, 529, 530],
+			"visited_by": [],
 			"message": 0
 		},
 		{
@@ -1484,6 +1587,7 @@
 			"color": "BLUE",
 			"size": 5,
 			"planets": [535, 536, 537, 538, 539, 540],
+			"visited_by": [],
 			"message": 0
 		},
 		{
@@ -1495,6 +1599,7 @@
 			"size": 3,
 			"worm": {"x": 27, "y": 6, "z": 17},
 			"planets": [541],
+			"visited_by": [],
 			"message": 0
 		},
 		{
@@ -1505,6 +1610,7 @@
 			"color": "BLUE",
 			"size": 1,
 			"planets": [542, 543, 544, 545, 546, 547, 548, 549],
+			"visited_by": [],
 			"message": 0
 		},
 		{
@@ -1515,6 +1621,7 @@
 			"color": "ORANGE",
 			"size": 1,
 			"planets": [550, 551],
+			"visited_by": [],
 			"message": 0
 		},
 		{
@@ -1537,6 +1644,7 @@
 			"color": "BLUE_WHITE",
 			"size": 8,
 			"planets": [556, 557, 558, 559],
+			"visited_by": [],
 			"message": 0
 		},
 		{
@@ -1547,6 +1655,7 @@
 			"color": "RED",
 			"size": 1,
 			"planets": [560],
+			"visited_by": [],
 			"message": 0
 		},
 		{
@@ -1558,6 +1667,7 @@
 			"size": 3,
 			"worm": {"x": 15, "y": 40, "z": 10},
 			"planets": [561, 562],
+			"visited_by": [],
 			"message": 0
 		},
 		{
@@ -1568,6 +1678,7 @@
 			"color": "WHITE",
 			"size": 2,
 			"planets": [563, 564, 565, 566, 567],
+			"visited_by": [],
 			"message": 0
 		},
 		{
@@ -1578,6 +1689,7 @@
 			"color": "ORANGE",
 			"size": 7,
 			"planets": [568, 569, 570],
+			"visited_by": [],
 			"message": 0
 		},
 		{
@@ -1588,6 +1700,7 @@
 			"color": "RED",
 			"size": 5,
 			"planets": [571],
+			"visited_by": ["SP11"],
 			"message": 0
 		},
 		{
@@ -1598,6 +1711,7 @@
 			"color": "YELLOW_WHITE",
 			"size": 8,
 			"planets": [572, 573],
+			"visited_by": [],
 			"message": 0
 		},
 		{
@@ -1609,6 +1723,7 @@
 			"size": 0,
 			"worm": {"x": 11, "y": 27, "z": 19},
 			"planets": [574, 575],
+			"visited_by": [],
 			"message": 0
 		},
 		{
@@ -1631,6 +1746,7 @@
 			"color": "BLUE_WHITE",
 			"size": 0,
 			"planets": [581, 582, 583, 584, 585, 586, 587],
+			"visited_by": [],
 			"message": 0
 		},
 		{
@@ -1641,6 +1757,7 @@
 			"color": "WHITE",
 			"size": 1,
 			"planets": [588, 589, 590, 591, 592, 593, 594, 595],
+			"visited_by": [],
 			"message": 0
 		},
 		{
@@ -1651,6 +1768,7 @@
 			"color": "ORANGE",
 			"size": 4,
 			"planets": [596, 597, 598],
+			"visited_by": [],
 			"message": 0
 		},
 		{
@@ -1661,6 +1779,7 @@
 			"color": "BLUE_WHITE",
 			"size": 8,
 			"planets": [599, 600, 601, 602, 603],
+			"visited_by": [],
 			"message": 0
 		},
 		{
@@ -1672,6 +1791,7 @@
 			"size": 9,
 			"worm": {"x": 33, "y": 17, "z": 18},
 			"planets": [604, 605, 606, 607, 608],
+			"visited_by": [],
 			"message": 0
 		},
 		{
@@ -1682,6 +1802,7 @@
 			"color": "YELLOW",
 			"size": 3,
 			"planets": [609, 610],
+			"visited_by": [],
 			"message": 0
 		},
 		{
@@ -1693,6 +1814,7 @@
 			"size": 4,
 			"worm": {"x": 4, "y": 32, "z": 16},
 			"planets": [611, 612, 613, 614, 615, 616, 617, 618],
+			"visited_by": [],
 			"message": 0
 		},
 		{
@@ -1703,6 +1825,7 @@
 			"color": "WHITE",
 			"size": 3,
 			"planets": [619],
+			"visited_by": [],
 			"message": 0
 		},
 		{
@@ -1713,6 +1836,7 @@
 			"color": "BLUE_WHITE",
 			"size": 6,
 			"planets": [620, 621, 622, 623, 624, 625, 626, 627],
+			"visited_by": [],
 			"message": 0
 		},
 		{
@@ -1723,6 +1847,7 @@
 			"color": "WHITE",
 			"size": 3,
 			"planets": [628, 629, 630, 631, 632, 633, 634, 635],
+			"visited_by": [],
 			"message": 0
 		},
 		{
@@ -1734,6 +1859,7 @@
 			"size": 8,
 			"worm": {"x": 18, "y": 25, "z": 24},
 			"planets": [636],
+			"visited_by": ["SP11"],
 			"message": 0
 		}
 	],
@@ -9402,17 +9528,20 @@
 			},
 			"auto_orders": true,
 			"tech": {
-				"MI": {"level": 11, "init": 11, "knowledge": 10, "xp": 4},
-				"MA": {"level": 12, "init": 12, "knowledge": 10, "xp": 7},
-				"ML": {"level": 7, "init": 7, "knowledge": 5, "xp": 1},
-				"GV": {"level": 7, "init": 7, "knowledge": 5, "xp": 4},
-				"LS": {"level": 9, "init": 9, "knowledge": 3, "xp": 8},
-				"BI": {"level": 8, "init": 8, "knowledge": 2, "xp": 4}
+				"MI": {"level": 13, "init": 13, "knowledge": 10, "xp": 7},
+				"MA": {"level": 12, "init": 12, "knowledge": 10, "xp": 11},
+				"ML": {"level": 9, "init": 9, "knowledge": 5, "xp": 2},
+				"GV": {"level": 10, "init": 10, "knowledge": 5, "xp": 0},
+				"LS": {"level": 11, "init": 11, "knowledge": 3, "xp": 6},
+				"BI": {"level": 11, "init": 11, "knowledge": 2, "xp": 1}
 			},
 			"econ_units": 567,
 			"hp_original_base": 0,
-			"fleet_cost": 54,
-			"fleet_percent_cost": 869,
+			"fleet_cost": 53,
+			"fleet_percent_cost": 751,
+			"contacts": [],
+			"allies": [],
+			"enemies": [],
 			"namplas": {
 				"SOMOL": {
 					"id": 1,
@@ -9439,12 +9568,12 @@
 					"auto_AUs": 0,
 					"IUs_to_install": 0,
 					"AUs_to_install": 0,
-					"mi_base": 1204,
-					"ma_base": 565,
+					"mi_base": 1252,
+					"ma_base": 588,
 					"pop_units": 1500,
 					"use_on_ambush": 0,
 					"message": 0,
-					"inventory": {"PD": 126, "CU": 85}
+					"inventory": {"RM": 58, "PD": 161, "CU": 155}
 				}
 			},
 			"ships": {
@@ -9457,7 +9586,7 @@
 					"class": "PB",
 					"type": "SUB_LIGHT",
 					"tonnage": 1,
-					"age": 3,
+					"age": 5,
 					"status": "IN_DEEP_SPACE",
 					"dest": {"x": 0, "y": 0, "z": 0},
 					"loading_point": 0,
@@ -9469,13 +9598,13 @@
 				"ROAMER": {
 					"id": 2,
 					"name": "Roamer",
-					"location": "7 18 34",
-					"coords": {"x": 7, "y": 18, "z": 34},
+					"location": "9 20 39",
+					"coords": {"x": 9, "y": 20, "z": 39},
 					"orbit": 0,
 					"class": "PB",
 					"type": "FTL",
 					"tonnage": 1,
-					"age": 2,
+					"age": 4,
 					"status": "IN_DEEP_SPACE",
 					"dest": {"x": 0, "y": 0, "z": 0},
 					"loading_point": 0,
@@ -9487,14 +9616,14 @@
 				"SEEKER": {
 					"id": 3,
 					"name": "Seeker",
-					"location": "1 22 31 #3",
-					"coords": {"x": 1, "y": 22, "z": 31},
-					"orbit": 3,
+					"location": "2 27 22",
+					"coords": {"x": 2, "y": 27, "z": 22},
+					"orbit": 0,
 					"class": "PB",
 					"type": "FTL",
 					"tonnage": 1,
-					"age": 1,
-					"status": "ON_SURFACE",
+					"age": 3,
+					"status": "IN_DEEP_SPACE",
 					"dest": {"x": 0, "y": 0, "z": 0},
 					"loading_point": 0,
 					"unloading_point": 0,
@@ -9522,17 +9651,20 @@
 			},
 			"auto_orders": true,
 			"tech": {
-				"MI": {"level": 12, "init": 12, "knowledge": 10, "xp": 0},
+				"MI": {"level": 13, "init": 13, "knowledge": 10, "xp": 7},
 				"MA": {"level": 10, "init": 10, "knowledge": 10, "xp": 5},
-				"ML": {"level": 8, "init": 8, "knowledge": 3, "xp": 7},
-				"GV": {"level": 20, "init": 20, "knowledge": 4, "xp": 11},
-				"LS": {"level": 11, "init": 11, "knowledge": 4, "xp": 6},
-				"BI": {"level": 8, "init": 8, "knowledge": 4, "xp": 2}
+				"ML": {"level": 9, "init": 9, "knowledge": 3, "xp": 7},
+				"GV": {"level": 23, "init": 23, "knowledge": 4, "xp": 3},
+				"LS": {"level": 13, "init": 13, "knowledge": 4, "xp": 3},
+				"BI": {"level": 9, "init": 9, "knowledge": 4, "xp": 6}
 			},
-			"econ_units": 85,
+			"econ_units": 130,
 			"hp_original_base": 0,
 			"fleet_cost": 15,
-			"fleet_percent_cost": 272,
+			"fleet_percent_cost": 262,
+			"contacts": [],
+			"allies": [],
+			"enemies": [],
 			"namplas": {
 				"FESZEK": {
 					"id": 1,
@@ -9559,12 +9691,12 @@
 					"auto_AUs": 0,
 					"IUs_to_install": 0,
 					"AUs_to_install": 0,
-					"mi_base": 1194,
-					"ma_base": 550,
+					"mi_base": 1241,
+					"ma_base": 572,
 					"pop_units": 1500,
 					"use_on_ambush": 0,
 					"message": 0,
-					"inventory": {"RM": 4, "PD": 100, "CU": 8}
+					"inventory": {"PD": 100, "CU": 8}
 				}
 			},
 			"ships": {
@@ -9577,7 +9709,7 @@
 					"class": "PB",
 					"type": "SUB_LIGHT",
 					"tonnage": 1,
-					"age": 3,
+					"age": 5,
 					"status": "ON_SURFACE",
 					"dest": {"x": 0, "y": 0, "z": 0},
 					"loading_point": 0,
@@ -9606,17 +9738,20 @@
 			},
 			"auto_orders": true,
 			"tech": {
-				"MI": {"level": 15, "init": 15, "knowledge": 10, "xp": 1},
-				"MA": {"level": 14, "init": 14, "knowledge": 10, "xp": 9},
-				"ML": {"level": 10, "init": 10, "knowledge": 2, "xp": 0},
-				"GV": {"level": 8, "init": 8, "knowledge": 5, "xp": 2},
-				"LS": {"level": 9, "init": 9, "knowledge": 5, "xp": 4},
-				"BI": {"level": 10, "init": 10, "knowledge": 3, "xp": 5}
+				"MI": {"level": 16, "init": 16, "knowledge": 10, "xp": 5},
+				"MA": {"level": 16, "init": 16, "knowledge": 10, "xp": 13},
+				"ML": {"level": 13, "init": 13, "knowledge": 2, "xp": 4},
+				"GV": {"level": 14, "init": 14, "knowledge": 5, "xp": 4},
+				"LS": {"level": 10, "init": 10, "knowledge": 5, "xp": 7},
+				"BI": {"level": 10, "init": 10, "knowledge": 3, "xp": 1}
 			},
-			"econ_units": 109,
+			"econ_units": 151,
 			"hp_original_base": 0,
-			"fleet_cost": 15,
-			"fleet_percent_cost": 189,
+			"fleet_cost": 43,
+			"fleet_percent_cost": 457,
+			"contacts": [],
+			"allies": [],
+			"enemies": [],
 			"namplas": {
 				"VULCAN PRIME": {
 					"id": 1,
@@ -9643,25 +9778,61 @@
 					"auto_AUs": 0,
 					"IUs_to_install": 0,
 					"AUs_to_install": 0,
-					"mi_base": 1204,
-					"ma_base": 565,
+					"mi_base": 1252,
+					"ma_base": 588,
 					"pop_units": 1500,
 					"use_on_ambush": 0,
 					"message": 0,
-					"inventory": {"RM": 56, "PD": 250, "CU": 10}
+					"inventory": {"RM": 3, "PD": 400, "CU": 10}
 				}
 			},
 			"ships": {
 				"VPS FENCER PB-101": {
 					"id": 1,
 					"name": "VPS Fencer PB-101",
+					"location": "11 11 19",
+					"coords": {"x": 11, "y": 11, "z": 19},
+					"orbit": 0,
+					"class": "PB",
+					"type": "SUB_LIGHT",
+					"tonnage": 1,
+					"age": 5,
+					"status": "IN_DEEP_SPACE",
+					"dest": {"x": 0, "y": 0, "z": 0},
+					"loading_point": 0,
+					"unloading_point": 0,
+					"remaining_cost": 0,
+					"message": 0,
+					"inventory": {}
+				},
+				"VPS BROWN PB-102": {
+					"id": 2,
+					"name": "VPS Brown PB-102",
 					"location": "10 11 19 #4",
 					"coords": {"x": 10, "y": 11, "z": 19},
 					"orbit": 4,
 					"class": "PB",
 					"type": "SUB_LIGHT",
 					"tonnage": 1,
-					"age": 3,
+					"age": 0,
+					"status": "ON_SURFACE",
+					"dest": {"x": 0, "y": 0, "z": 0},
+					"loading_point": 0,
+					"unloading_point": 0,
+					"remaining_cost": 0,
+					"message": 0,
+					"inventory": {}
+				},
+				"VPS JAMES PB-103": {
+					"id": 3,
+					"name": "VPS James PB-103",
+					"location": "10 11 19 #4",
+					"coords": {"x": 10, "y": 11, "z": 19},
+					"orbit": 4,
+					"class": "PB",
+					"type": "SUB_LIGHT",
+					"tonnage": 1,
+					"age": 0,
 					"status": "ON_SURFACE",
 					"dest": {"x": 0, "y": 0, "z": 0},
 					"loading_point": 0,
@@ -9690,17 +9861,20 @@
 			},
 			"auto_orders": true,
 			"tech": {
-				"MI": {"level": 11, "init": 11, "knowledge": 10, "xp": 1},
-				"MA": {"level": 10, "init": 10, "knowledge": 10, "xp": 8},
+				"MI": {"level": 12, "init": 12, "knowledge": 10, "xp": 1},
+				"MA": {"level": 11, "init": 11, "knowledge": 10, "xp": 8},
 				"ML": {"level": 9, "init": 9, "knowledge": 5, "xp": 0},
 				"GV": {"level": 11, "init": 11, "knowledge": 4, "xp": 6},
-				"LS": {"level": 10, "init": 10, "knowledge": 3, "xp": 6},
-				"BI": {"level": 8, "init": 8, "knowledge": 3, "xp": 0}
+				"LS": {"level": 12, "init": 12, "knowledge": 3, "xp": 6},
+				"BI": {"level": 10, "init": 10, "knowledge": 3, "xp": 5}
 			},
-			"econ_units": 11,
+			"econ_units": 21,
 			"hp_original_base": 0,
-			"fleet_cost": 116,
-			"fleet_percent_cost": 2109,
+			"fleet_cost": 127,
+			"fleet_percent_cost": 2019,
+			"contacts": ["SP08"],
+			"allies": [],
+			"enemies": [],
 			"namplas": {
 				"FREES": {
 					"id": 1,
@@ -9727,25 +9901,25 @@
 					"auto_AUs": 0,
 					"IUs_to_install": 0,
 					"AUs_to_install": 0,
-					"mi_base": 1227,
-					"ma_base": 550,
+					"mi_base": 1276,
+					"ma_base": 572,
 					"pop_units": 1500,
 					"use_on_ambush": 0,
 					"message": 0,
-					"inventory": {"RM": 2}
+					"inventory": {"RM": 3}
 				}
 			},
 			"ships": {
 				"SPARROW": {
 					"id": 1,
 					"name": "Sparrow",
-					"location": "26 26 32",
-					"coords": {"x": 26, "y": 26, "z": 32},
+					"location": "21 28 27",
+					"coords": {"x": 21, "y": 28, "z": 27},
 					"orbit": 0,
 					"class": "TR",
 					"type": "FTL",
 					"tonnage": 1,
-					"age": 3,
+					"age": 5,
 					"status": "IN_DEEP_SPACE",
 					"dest": {"x": 0, "y": 0, "z": 0},
 					"loading_point": 0,
@@ -9763,7 +9937,7 @@
 					"class": "TR",
 					"type": "FTL",
 					"tonnage": 1,
-					"age": 2,
+					"age": 4,
 					"status": "IN_DEEP_SPACE",
 					"dest": {"x": 0, "y": 0, "z": 0},
 					"loading_point": 9999,
@@ -9781,14 +9955,14 @@
 					"class": "ES",
 					"type": "FTL",
 					"tonnage": 5,
-					"age": -1,
-					"status": "UNDER_CONSTRUCTION",
+					"age": 1,
+					"status": "ON_SURFACE",
 					"dest": {"x": 0, "y": 0, "z": 0},
 					"loading_point": 0,
 					"unloading_point": 0,
-					"remaining_cost": 125,
+					"remaining_cost": 0,
 					"message": 0,
-					"inventory": {}
+					"inventory": {"SG1": 1}
 				},
 				"SPARROW 02": {
 					"id": 4,
@@ -9799,7 +9973,7 @@
 					"class": "TR",
 					"type": "FTL",
 					"tonnage": 1,
-					"age": 1,
+					"age": 3,
 					"status": "IN_DEEP_SPACE",
 					"dest": {"x": 0, "y": 0, "z": 0},
 					"loading_point": 0,
@@ -9811,12 +9985,48 @@
 				"DOVE": {
 					"id": 5,
 					"name": "Dove",
+					"location": "31 28 36",
+					"coords": {"x": 31, "y": 28, "z": 36},
+					"orbit": 0,
+					"class": "TR",
+					"type": "FTL",
+					"tonnage": 2,
+					"age": 2,
+					"status": "IN_DEEP_SPACE",
+					"dest": {"x": 0, "y": 0, "z": 0},
+					"loading_point": 9999,
+					"unloading_point": 0,
+					"remaining_cost": 0,
+					"message": 0,
+					"inventory": {"CU": 10, "IU": 5, "AU": 5}
+				},
+				"DOVE 01": {
+					"id": 6,
+					"name": "Dove 01",
+					"location": "22 27 30",
+					"coords": {"x": 22, "y": 27, "z": 30},
+					"orbit": 0,
+					"class": "TR",
+					"type": "FTL",
+					"tonnage": 2,
+					"age": 1,
+					"status": "IN_DEEP_SPACE",
+					"dest": {"x": 0, "y": 0, "z": 0},
+					"loading_point": 0,
+					"unloading_point": 0,
+					"remaining_cost": 0,
+					"message": 0,
+					"inventory": {"IU": 5, "AU": 5}
+				},
+				"SPARROW 03": {
+					"id": 7,
+					"name": "Sparrow 03",
 					"location": "21 28 27 #2",
 					"coords": {"x": 21, "y": 28, "z": 27},
 					"orbit": 2,
 					"class": "TR",
 					"type": "FTL",
-					"tonnage": 2,
+					"tonnage": 1,
 					"age": 0,
 					"status": "ON_SURFACE",
 					"dest": {"x": 0, "y": 0, "z": 0},
@@ -9824,7 +10034,7 @@
 					"unloading_point": 0,
 					"remaining_cost": 0,
 					"message": 0,
-					"inventory": {"CU": 10, "IU": 5, "AU": 5}
+					"inventory": {"CU": 5, "IU": 3, "AU": 2}
 				}
 			}
 		},
@@ -9846,17 +10056,20 @@
 			},
 			"auto_orders": true,
 			"tech": {
-				"MI": {"level": 11, "init": 11, "knowledge": 10, "xp": 9},
+				"MI": {"level": 12, "init": 12, "knowledge": 10, "xp": 9},
 				"MA": {"level": 12, "init": 12, "knowledge": 10, "xp": 0},
 				"ML": {"level": 7, "init": 7, "knowledge": 3, "xp": 1},
 				"GV": {"level": 6, "init": 6, "knowledge": 4, "xp": 4},
-				"LS": {"level": 8, "init": 8, "knowledge": 4, "xp": 6},
+				"LS": {"level": 10, "init": 10, "knowledge": 4, "xp": 0},
 				"BI": {"level": 5, "init": 5, "knowledge": 4, "xp": 4}
 			},
-			"econ_units": 107,
+			"econ_units": 661,
 			"hp_original_base": 0,
-			"fleet_cost": 66,
-			"fleet_percent_cost": 1061,
+			"fleet_cost": 82,
+			"fleet_percent_cost": 1161,
+			"contacts": ["SP10"],
+			"allies": [],
+			"enemies": [],
 			"namplas": {
 				"XYLM": {
 					"id": 1,
@@ -9883,12 +10096,12 @@
 					"auto_AUs": 0,
 					"IUs_to_install": 0,
 					"AUs_to_install": 0,
-					"mi_base": 1171,
-					"ma_base": 565,
+					"mi_base": 1217,
+					"ma_base": 588,
 					"pop_units": 1500,
 					"use_on_ambush": 0,
 					"message": 0,
-					"inventory": {"CU": 36, "IU": 18, "AU": 18}
+					"inventory": {"CU": 55, "IU": 24, "AU": 24}
 				},
 				"COL 1": {
 					"id": 2,
@@ -9899,7 +10112,7 @@
 					"status": {
 						"home_planet": false,
 						"colony": true,
-						"populated": false,
+						"populated": true,
 						"mining_colony": false,
 						"resort_colony": false,
 						"disbanded_colony": false
@@ -9915,28 +10128,28 @@
 					"auto_AUs": 0,
 					"IUs_to_install": 0,
 					"AUs_to_install": 0,
-					"mi_base": 0,
-					"ma_base": 0,
+					"mi_base": 2,
+					"ma_base": 2,
 					"pop_units": 0,
 					"use_on_ambush": 0,
 					"message": 0,
-					"inventory": {}
+					"inventory": {"CU": 37, "IU": 4, "AU": 4}
 				}
 			},
 			"ships": {
 				"DUQUESNE": {
 					"id": 1,
 					"name": "DuQuesne",
-					"location": "23 7 28",
-					"coords": {"x": 23, "y": 7, "z": 28},
-					"orbit": 0,
+					"location": "25 5 34 #1",
+					"coords": {"x": 25, "y": 5, "z": 34},
+					"orbit": 1,
 					"class": "TR",
 					"type": "FTL",
 					"tonnage": 2,
-					"age": 3,
-					"status": "IN_DEEP_SPACE",
+					"age": 5,
+					"status": "IN_ORBIT",
 					"dest": {"x": 0, "y": 0, "z": 0},
-					"loading_point": 0,
+					"loading_point": 9999,
 					"unloading_point": 0,
 					"remaining_cost": 0,
 					"message": 0,
@@ -9945,13 +10158,13 @@
 				"SEVANCE": {
 					"id": 2,
 					"name": "Sevance",
-					"location": "30 8 35",
-					"coords": {"x": 30, "y": 8, "z": 35},
+					"location": "32 14 34",
+					"coords": {"x": 32, "y": 14, "z": 34},
 					"orbit": 0,
 					"class": "TR",
 					"type": "FTL",
 					"tonnage": 1,
-					"age": 2,
+					"age": 4,
 					"status": "IN_DEEP_SPACE",
 					"dest": {"x": 0, "y": 0, "z": 0},
 					"loading_point": 0,
@@ -9963,13 +10176,13 @@
 				"SEEKER": {
 					"id": 3,
 					"name": "Seeker",
-					"location": "17 11 38",
-					"coords": {"x": 17, "y": 11, "z": 38},
+					"location": "24 15 43",
+					"coords": {"x": 24, "y": 15, "z": 43},
 					"orbit": 0,
 					"class": "TR",
 					"type": "FTL",
 					"tonnage": 1,
-					"age": 2,
+					"age": 4,
 					"status": "IN_DEEP_SPACE",
 					"dest": {"x": 0, "y": 0, "z": 0},
 					"loading_point": 0,
@@ -9981,32 +10194,32 @@
 				"TR1 LOOKS": {
 					"id": 4,
 					"name": "TR1 Looks",
-					"location": "25 5 34 #1",
-					"coords": {"x": 25, "y": 5, "z": 34},
-					"orbit": 1,
+					"location": "31 10 43",
+					"coords": {"x": 31, "y": 10, "z": 43},
+					"orbit": 0,
 					"class": "TR",
 					"type": "FTL",
 					"tonnage": 1,
-					"age": 1,
-					"status": "IN_ORBIT",
+					"age": 3,
+					"status": "IN_DEEP_SPACE",
 					"dest": {"x": 0, "y": 0, "z": 0},
 					"loading_point": 9999,
 					"unloading_point": 0,
 					"remaining_cost": 0,
 					"message": 0,
-					"inventory": {"CU": 6, "IU": 2, "AU": 2}
+					"inventory": {}
 				},
 				"XN LOOK 1": {
 					"id": 5,
 					"name": "XN Look 1",
-					"location": "22 4 34 #4",
-					"coords": {"x": 22, "y": 4, "z": 34},
-					"orbit": 4,
+					"location": "19 3 22",
+					"coords": {"x": 19, "y": 3, "z": 22},
+					"orbit": 0,
 					"class": "PB",
 					"type": "FTL",
 					"tonnage": 1,
-					"age": 0,
-					"status": "ON_SURFACE",
+					"age": 2,
+					"status": "IN_DEEP_SPACE",
 					"dest": {"x": 0, "y": 0, "z": 0},
 					"loading_point": 0,
 					"unloading_point": 0,
@@ -10017,15 +10230,16 @@
 				"XN LOOK 2": {
 					"id": 6,
 					"name": "XN Look 2",
-					"location": "22 4 34 #4",
-					"coords": {"x": 22, "y": 4, "z": 34},
-					"orbit": 4,
+					"location": "30 22 7",
+					"coords": {"x": 30, "y": 22, "z": 7},
+					"orbit": 0,
 					"class": "PB",
 					"type": "FTL",
 					"tonnage": 1,
-					"age": 0,
-					"status": "ON_SURFACE",
+					"age": 2,
+					"status": "IN_DEEP_SPACE",
 					"dest": {"x": 0, "y": 0, "z": 0},
+					"arrived_via_wormhole": true,
 					"loading_point": 0,
 					"unloading_point": 0,
 					"remaining_cost": 0,
@@ -10041,6 +10255,42 @@
 					"class": "TR",
 					"type": "FTL",
 					"tonnage": 2,
+					"age": 2,
+					"status": "IN_ORBIT",
+					"dest": {"x": 0, "y": 0, "z": 0},
+					"loading_point": 9999,
+					"unloading_point": 1,
+					"remaining_cost": 0,
+					"message": 0,
+					"inventory": {"CU": 11, "IU": 6, "AU": 5}
+				},
+				"TR3 BUILDER": {
+					"id": 8,
+					"name": "TR3 Builder",
+					"location": "22 4 34 #4",
+					"coords": {"x": 22, "y": 4, "z": 34},
+					"orbit": 4,
+					"class": "TR",
+					"type": "FTL",
+					"tonnage": 3,
+					"age": 0,
+					"status": "ON_SURFACE",
+					"dest": {"x": 0, "y": 0, "z": 0},
+					"loading_point": 0,
+					"unloading_point": 0,
+					"remaining_cost": 0,
+					"message": 0,
+					"inventory": {}
+				},
+				"XN LOOK 3": {
+					"id": 9,
+					"name": "XN Look 3",
+					"location": "22 4 34 #4",
+					"coords": {"x": 22, "y": 4, "z": 34},
+					"orbit": 4,
+					"class": "TR",
+					"type": "FTL",
+					"tonnage": 1,
 					"age": 0,
 					"status": "ON_SURFACE",
 					"dest": {"x": 0, "y": 0, "z": 0},
@@ -10070,17 +10320,20 @@
 			},
 			"auto_orders": true,
 			"tech": {
-				"MI": {"level": 10, "init": 10, "knowledge": 10, "xp": 5},
-				"MA": {"level": 11, "init": 11, "knowledge": 10, "xp": 5},
+				"MI": {"level": 11, "init": 11, "knowledge": 10, "xp": 5},
+				"MA": {"level": 12, "init": 12, "knowledge": 10, "xp": 5},
 				"ML": {"level": 8, "init": 8, "knowledge": 5, "xp": 1},
 				"GV": {"level": 6, "init": 6, "knowledge": 3, "xp": 0},
 				"LS": {"level": 7, "init": 7, "knowledge": 4, "xp": 2},
-				"BI": {"level": 6, "init": 6, "knowledge": 3, "xp": 0}
+				"BI": {"level": 7, "init": 7, "knowledge": 3, "xp": 0}
 			},
-			"econ_units": 1613,
+			"econ_units": 2693,
 			"hp_original_base": 0,
 			"fleet_cost": 15,
-			"fleet_percent_cost": 272,
+			"fleet_percent_cost": 238,
+			"contacts": [],
+			"allies": [],
+			"enemies": [],
 			"namplas": {
 				"DRACONIS": {
 					"id": 1,
@@ -10107,8 +10360,8 @@
 					"auto_AUs": 0,
 					"IUs_to_install": 0,
 					"AUs_to_install": 0,
-					"mi_base": 1177,
-					"ma_base": 550,
+					"mi_base": 1224,
+					"ma_base": 572,
 					"pop_units": 1500,
 					"use_on_ambush": 0,
 					"message": 0,
@@ -10125,7 +10378,7 @@
 					"class": "PB",
 					"type": "SUB_LIGHT",
 					"tonnage": 1,
-					"age": 3,
+					"age": 5,
 					"status": "ON_SURFACE",
 					"dest": {"x": 0, "y": 0, "z": 0},
 					"loading_point": 0,
@@ -10159,12 +10412,15 @@
 				"ML": {"level": 6, "init": 6, "knowledge": 2, "xp": 0},
 				"GV": {"level": 6, "init": 6, "knowledge": 1, "xp": 1},
 				"LS": {"level": 15, "init": 15, "knowledge": 6, "xp": 0},
-				"BI": {"level": 9, "init": 9, "knowledge": 6, "xp": 6}
+				"BI": {"level": 10, "init": 10, "knowledge": 6, "xp": 6}
 			},
-			"econ_units": 880,
+			"econ_units": 2435,
 			"hp_original_base": 0,
 			"fleet_cost": 0,
 			"fleet_percent_cost": 0,
+			"contacts": [],
+			"allies": [],
+			"enemies": [],
 			"namplas": {
 				"KRIXON": {
 					"id": 1,
@@ -10191,8 +10447,8 @@
 					"auto_AUs": 0,
 					"IUs_to_install": 0,
 					"AUs_to_install": 0,
-					"mi_base": 1150,
-					"ma_base": 550,
+					"mi_base": 1196,
+					"ma_base": 572,
 					"pop_units": 1500,
 					"use_on_ambush": 0,
 					"message": 0,
@@ -10222,15 +10478,18 @@
 			"tech": {
 				"MI": {"level": 14, "init": 14, "knowledge": 10, "xp": 5},
 				"MA": {"level": 14, "init": 14, "knowledge": 10, "xp": 12},
-				"ML": {"level": 4, "init": 4, "knowledge": 3, "xp": 0},
-				"GV": {"level": 5, "init": 5, "knowledge": 4, "xp": 3},
-				"LS": {"level": 9, "init": 9, "knowledge": 4, "xp": 7},
-				"BI": {"level": 4, "init": 4, "knowledge": 4, "xp": 0}
+				"ML": {"level": 5, "init": 5, "knowledge": 3, "xp": 1},
+				"GV": {"level": 8, "init": 8, "knowledge": 4, "xp": 0},
+				"LS": {"level": 12, "init": 12, "knowledge": 4, "xp": 9},
+				"BI": {"level": 5, "init": 5, "knowledge": 4, "xp": 0}
 			},
-			"econ_units": 0,
+			"econ_units": 158,
 			"hp_original_base": 0,
-			"fleet_cost": 32,
-			"fleet_percent_cost": 404,
+			"fleet_cost": 48,
+			"fleet_percent_cost": 582,
+			"contacts": ["SP04"],
+			"allies": [],
+			"enemies": [],
 			"namplas": {
 				"ANTARCTICA": {
 					"id": 1,
@@ -10257,12 +10516,12 @@
 					"auto_AUs": 0,
 					"IUs_to_install": 0,
 					"AUs_to_install": 0,
-					"mi_base": 1244,
-					"ma_base": 565,
+					"mi_base": 1293,
+					"ma_base": 588,
 					"pop_units": 1500,
 					"use_on_ambush": 0,
 					"message": 0,
-					"inventory": {"RM": 1, "CU": 62, "IU": 18, "AU": 4}
+					"inventory": {"CU": 77, "IU": 41, "AU": 34}
 				},
 				"EREBUS": {
 					"id": 2,
@@ -10273,8 +10532,8 @@
 					"status": {
 						"home_planet": false,
 						"colony": true,
-						"populated": false,
-						"mining_colony": false,
+						"populated": true,
+						"mining_colony": true,
 						"resort_colony": false,
 						"disbanded_colony": false
 					},
@@ -10289,12 +10548,12 @@
 					"auto_AUs": 0,
 					"IUs_to_install": 0,
 					"AUs_to_install": 0,
-					"mi_base": 0,
+					"mi_base": 7,
 					"ma_base": 0,
 					"pop_units": 0,
 					"use_on_ambush": 0,
 					"message": 0,
-					"inventory": {}
+					"inventory": {"CU": 27}
 				},
 				"SIDLEY": {
 					"id": 3,
@@ -10327,14 +10586,64 @@
 					"use_on_ambush": 0,
 					"message": 0,
 					"inventory": {}
+				},
+				"VOSTOK": {
+					"id": 4,
+					"name": "Vostok",
+					"location": "22 32 30 #2",
+					"coords": {"x": 22, "y": 32, "z": 30},
+					"orbit": 2,
+					"status": {
+						"home_planet": false,
+						"colony": true,
+						"populated": false,
+						"mining_colony": false,
+						"resort_colony": false,
+						"disbanded_colony": false
+					},
+					"hiding": false,
+					"hidden": 0,
+					"planet_index": 264,
+					"siege_eff": 0,
+					"shipyards": 0,
+					"IUs_needed": 0,
+					"AUs_needed": 0,
+					"auto_IUs": 0,
+					"auto_AUs": 0,
+					"IUs_to_install": 0,
+					"AUs_to_install": 0,
+					"mi_base": 0,
+					"ma_base": 0,
+					"pop_units": 0,
+					"use_on_ambush": 0,
+					"message": 0,
+					"inventory": {}
 				}
 			},
 			"ships": {
 				"SCOUT 1": {
 					"id": 1,
 					"name": "Scout 1",
-					"location": "22 32 30",
-					"coords": {"x": 22, "y": 32, "z": 30},
+					"location": "21 28 27",
+					"coords": {"x": 21, "y": 28, "z": 27},
+					"orbit": 0,
+					"class": "TR",
+					"type": "FTL",
+					"tonnage": 1,
+					"age": 5,
+					"status": "IN_DEEP_SPACE",
+					"dest": {"x": 0, "y": 0, "z": 0},
+					"loading_point": 0,
+					"unloading_point": 0,
+					"remaining_cost": 0,
+					"message": 0,
+					"inventory": {}
+				},
+				"SCOUT 4": {
+					"id": 2,
+					"name": "Scout 4",
+					"location": "12 30 27",
+					"coords": {"x": 12, "y": 30, "z": 27},
 					"orbit": 0,
 					"class": "TR",
 					"type": "FTL",
@@ -10348,52 +10657,34 @@
 					"message": 0,
 					"inventory": {}
 				},
-				"SCOUT 4": {
-					"id": 2,
-					"name": "Scout 4",
-					"location": "11 35 28",
-					"coords": {"x": 11, "y": 35, "z": 28},
+				"SCOUT 7": {
+					"id": 3,
+					"name": "Scout 7",
+					"location": "26 32 37",
+					"coords": {"x": 26, "y": 32, "z": 37},
 					"orbit": 0,
 					"class": "TR",
 					"type": "FTL",
 					"tonnage": 1,
-					"age": 1,
+					"age": 2,
 					"status": "IN_DEEP_SPACE",
 					"dest": {"x": 0, "y": 0, "z": 0},
-					"loading_point": 0,
+					"loading_point": 9999,
 					"unloading_point": 0,
 					"remaining_cost": 0,
 					"message": 0,
-					"inventory": {}
-				},
-				"SCOUT 7": {
-					"id": 3,
-					"name": "Scout 7",
-					"location": "12 37 39 #3",
-					"coords": {"x": 12, "y": 37, "z": 39},
-					"orbit": 3,
-					"class": "TR",
-					"type": "FTL",
-					"tonnage": 1,
-					"age": 0,
-					"status": "ON_SURFACE",
-					"dest": {"x": 0, "y": 0, "z": 0},
-					"loading_point": 0,
-					"unloading_point": 0,
-					"remaining_cost": 0,
-					"message": 0,
-					"inventory": {}
+					"inventory": {"CU": 10}
 				},
 				"SCOUT 5": {
 					"id": 4,
 					"name": "Scout 5",
-					"location": "13 21 44",
-					"coords": {"x": 13, "y": 21, "z": 44},
+					"location": "20 18 42",
+					"coords": {"x": 20, "y": 18, "z": 42},
 					"orbit": 0,
 					"class": "TR",
 					"type": "FTL",
 					"tonnage": 1,
-					"age": 1,
+					"age": 3,
 					"status": "IN_DEEP_SPACE",
 					"dest": {"x": 0, "y": 0, "z": 0},
 					"loading_point": 0,
@@ -10405,14 +10696,14 @@
 				"SCOUT 6": {
 					"id": 5,
 					"name": "Scout 6",
-					"location": "18 35 35 #2",
-					"coords": {"x": 18, "y": 35, "z": 35},
-					"orbit": 2,
+					"location": "13 24 45",
+					"coords": {"x": 13, "y": 24, "z": 45},
+					"orbit": 0,
 					"class": "TR",
 					"type": "FTL",
 					"tonnage": 1,
-					"age": 1,
-					"status": "IN_ORBIT",
+					"age": 3,
+					"status": "IN_DEEP_SPACE",
 					"dest": {"x": 0, "y": 0, "z": 0},
 					"loading_point": 9999,
 					"unloading_point": 0,
@@ -10429,14 +10720,14 @@
 					"class": "TR",
 					"type": "FTL",
 					"tonnage": 1,
-					"age": 0,
-					"status": "ON_SURFACE",
+					"age": 2,
+					"status": "IN_ORBIT",
 					"dest": {"x": 0, "y": 0, "z": 0},
-					"loading_point": 0,
-					"unloading_point": 0,
+					"loading_point": 9999,
+					"unloading_point": 1,
 					"remaining_cost": 0,
 					"message": 0,
-					"inventory": {}
+					"inventory": {"CU": 5, "IU": 5}
 				},
 				"CARGO 1": {
 					"id": 7,
@@ -10447,7 +10738,61 @@
 					"class": "TR",
 					"type": "FTL",
 					"tonnage": 2,
-					"age": 0,
+					"age": 2,
+					"status": "IN_ORBIT",
+					"dest": {"x": 0, "y": 0, "z": 0},
+					"loading_point": 9999,
+					"unloading_point": 1,
+					"remaining_cost": 0,
+					"message": 0,
+					"inventory": {"CU": 11, "IU": 11}
+				},
+				"SCOUT 9": {
+					"id": 8,
+					"name": "Scout 9",
+					"location": "15 24 30",
+					"coords": {"x": 15, "y": 24, "z": 30},
+					"orbit": 0,
+					"class": "TR",
+					"type": "FTL",
+					"tonnage": 1,
+					"age": 1,
+					"status": "IN_DEEP_SPACE",
+					"dest": {"x": 0, "y": 0, "z": 0},
+					"loading_point": 0,
+					"unloading_point": 0,
+					"remaining_cost": 0,
+					"message": 0,
+					"inventory": {}
+				},
+				"SCOUT 10": {
+					"id": 9,
+					"name": "Scout 10",
+					"location": "13 46 21",
+					"coords": {"x": 13, "y": 46, "z": 21},
+					"orbit": 0,
+					"class": "TR",
+					"type": "FTL",
+					"tonnage": 1,
+					"age": 1,
+					"status": "IN_DEEP_SPACE",
+					"dest": {"x": 0, "y": 0, "z": 0},
+					"loading_point": 0,
+					"unloading_point": 0,
+					"remaining_cost": 0,
+					"message": 0,
+					"inventory": {}
+				},
+				"CARGO 2": {
+					"id": 10,
+					"name": "Cargo 2",
+					"location": "12 37 39 #3",
+					"coords": {"x": 12, "y": 37, "z": 39},
+					"orbit": 3,
+					"class": "TR",
+					"type": "FTL",
+					"tonnage": 2,
+					"age": 1,
 					"status": "ON_SURFACE",
 					"dest": {"x": 0, "y": 0, "z": 0},
 					"loading_point": 0,
@@ -10480,13 +10825,16 @@
 				"MA": {"level": 11, "init": 11, "knowledge": 10, "xp": 2},
 				"ML": {"level": 10, "init": 10, "knowledge": 8, "xp": 0},
 				"GV": {"level": 8, "init": 8, "knowledge": 3, "xp": 6},
-				"LS": {"level": 6, "init": 6, "knowledge": 2, "xp": 3},
+				"LS": {"level": 11, "init": 11, "knowledge": 2, "xp": 2},
 				"BI": {"level": 6, "init": 6, "knowledge": 2, "xp": 3}
 			},
-			"econ_units": 1136,
+			"econ_units": 1722,
 			"hp_original_base": 0,
 			"fleet_cost": 35,
-			"fleet_percent_cost": 563,
+			"fleet_percent_cost": 541,
+			"contacts": [],
+			"allies": [],
+			"enemies": [],
 			"namplas": {
 				"NATIO NDAM": {
 					"id": 1,
@@ -10513,12 +10861,12 @@
 					"auto_AUs": 0,
 					"IUs_to_install": 0,
 					"AUs_to_install": 0,
-					"mi_base": 1171,
-					"ma_base": 565,
+					"mi_base": 1217,
+					"ma_base": 588,
 					"pop_units": 1500,
 					"use_on_ambush": 0,
 					"message": 0,
-					"inventory": {"RM": 1, "CU": 10, "IU": 6, "AU": 6}
+					"inventory": {"RM": 115, "CU": 10, "IU": 6, "AU": 6}
 				}
 			},
 			"ships": {
@@ -10531,7 +10879,7 @@
 					"class": "TR",
 					"type": "FTL",
 					"tonnage": 2,
-					"age": 3,
+					"age": 5,
 					"status": "IN_DEEP_SPACE",
 					"dest": {"x": 0, "y": 0, "z": 0},
 					"loading_point": 9999,
@@ -10549,7 +10897,7 @@
 					"class": "TR",
 					"type": "FTL",
 					"tonnage": 2,
-					"age": 2,
+					"age": 4,
 					"status": "ON_SURFACE",
 					"dest": {"x": 0, "y": 0, "z": 0},
 					"loading_point": 0,
@@ -10567,7 +10915,7 @@
 					"class": "PB",
 					"type": "FTL",
 					"tonnage": 1,
-					"age": 2,
+					"age": 4,
 					"status": "ON_SURFACE",
 					"dest": {"x": 0, "y": 0, "z": 0},
 					"loading_point": 0,
@@ -10596,17 +10944,20 @@
 			},
 			"auto_orders": true,
 			"tech": {
-				"MI": {"level": 10, "init": 10, "knowledge": 10, "xp": 0},
-				"MA": {"level": 11, "init": 11, "knowledge": 10, "xp": 2},
+				"MI": {"level": 12, "init": 12, "knowledge": 10, "xp": 0},
+				"MA": {"level": 12, "init": 12, "knowledge": 10, "xp": 2},
 				"ML": {"level": 3, "init": 3, "knowledge": 1, "xp": 0},
 				"GV": {"level": 5, "init": 5, "knowledge": 4, "xp": 2},
-				"LS": {"level": 10, "init": 10, "knowledge": 5, "xp": 1},
-				"BI": {"level": 7, "init": 7, "knowledge": 5, "xp": 1}
+				"LS": {"level": 11, "init": 11, "knowledge": 5, "xp": 1},
+				"BI": {"level": 8, "init": 8, "knowledge": 5, "xp": 1}
 			},
-			"econ_units": 1584,
+			"econ_units": 2753,
 			"hp_original_base": 0,
 			"fleet_cost": 15,
-			"fleet_percent_cost": 265,
+			"fleet_percent_cost": 212,
+			"contacts": ["SP05"],
+			"allies": [],
+			"enemies": [],
 			"namplas": {
 				"MASSILLON": {
 					"id": 1,
@@ -10633,8 +10984,8 @@
 					"auto_AUs": 0,
 					"IUs_to_install": 0,
 					"AUs_to_install": 0,
-					"mi_base": 1204,
-					"ma_base": 565,
+					"mi_base": 1252,
+					"ma_base": 588,
 					"pop_units": 1500,
 					"use_on_ambush": 0,
 					"message": 0,
@@ -10651,7 +11002,7 @@
 					"class": "PB",
 					"type": "SUB_LIGHT",
 					"tonnage": 1,
-					"age": 3,
+					"age": 5,
 					"status": "ON_SURFACE",
 					"dest": {"x": 0, "y": 0, "z": 0},
 					"loading_point": 0,
@@ -10680,17 +11031,20 @@
 			},
 			"auto_orders": true,
 			"tech": {
-				"MI": {"level": 13, "init": 13, "knowledge": 10, "xp": 2},
-				"MA": {"level": 14, "init": 14, "knowledge": 10, "xp": 13},
-				"ML": {"level": 8, "init": 8, "knowledge": 4, "xp": 1},
+				"MI": {"level": 15, "init": 15, "knowledge": 10, "xp": 5},
+				"MA": {"level": 16, "init": 16, "knowledge": 10, "xp": 3},
+				"ML": {"level": 8, "init": 8, "knowledge": 4, "xp": 3},
 				"GV": {"level": 9, "init": 9, "knowledge": 4, "xp": 5},
-				"LS": {"level": 12, "init": 12, "knowledge": 4, "xp": 11},
-				"BI": {"level": 6, "init": 6, "knowledge": 3, "xp": 5}
+				"LS": {"level": 13, "init": 13, "knowledge": 4, "xp": 1},
+				"BI": {"level": 8, "init": 8, "knowledge": 3, "xp": 3}
 			},
 			"econ_units": 0,
 			"hp_original_base": 0,
-			"fleet_cost": 11,
-			"fleet_percent_cost": 153,
+			"fleet_cost": 38,
+			"fleet_percent_cost": 436,
+			"contacts": [],
+			"allies": [],
+			"enemies": [],
 			"namplas": {
 				"MUDBALL": {
 					"id": 1,
@@ -10717,12 +11071,12 @@
 					"auto_AUs": 0,
 					"IUs_to_install": 0,
 					"AUs_to_install": 0,
-					"mi_base": 1167,
-					"ma_base": 550,
+					"mi_base": 1214,
+					"ma_base": 572,
 					"pop_units": 1500,
 					"use_on_ambush": 0,
 					"message": 0,
-					"inventory": {"PD": 100, "CU": 160, "IU": 80, "AU": 80}
+					"inventory": {"PD": 200, "CU": 40, "IU": 20, "AU": 20}
 				},
 				"FIREBALL": {
 					"id": 2,
@@ -10733,7 +11087,7 @@
 					"status": {
 						"home_planet": false,
 						"colony": true,
-						"populated": false,
+						"populated": true,
 						"mining_colony": false,
 						"resort_colony": false,
 						"disbanded_colony": false
@@ -10749,25 +11103,25 @@
 					"auto_AUs": 0,
 					"IUs_to_install": 0,
 					"AUs_to_install": 0,
-					"mi_base": 0,
-					"ma_base": 0,
+					"mi_base": 100,
+					"ma_base": 100,
 					"pop_units": 0,
 					"use_on_ambush": 0,
 					"message": 0,
-					"inventory": {}
+					"inventory": {"RM": 14}
 				}
 			},
 			"ships": {
 				"PILSNER URQUELL": {
 					"id": 1,
 					"name": "PILSNER URQUELL",
-					"location": "42 21 19",
-					"coords": {"x": 42, "y": 21, "z": 19},
+					"location": "42 23 19",
+					"coords": {"x": 42, "y": 23, "z": 19},
 					"orbit": 0,
 					"class": "TR",
 					"type": "SUB_LIGHT",
 					"tonnage": 1,
-					"age": 3,
+					"age": 5,
 					"status": "IN_DEEP_SPACE",
 					"dest": {"x": 0, "y": 0, "z": 0},
 					"loading_point": 0,
@@ -10779,13 +11133,13 @@
 				"LANDLORDS": {
 					"id": 2,
 					"name": "LANDLORDS",
-					"location": "37 17 17",
-					"coords": {"x": 37, "y": 17, "z": 17},
+					"location": "33 17 18",
+					"coords": {"x": 33, "y": 17, "z": 18},
 					"orbit": 0,
 					"class": "TR",
 					"type": "FTL",
 					"tonnage": 1,
-					"age": 1,
+					"age": 3,
 					"status": "IN_DEEP_SPACE",
 					"dest": {"x": 0, "y": 0, "z": 0},
 					"loading_point": 0,
@@ -10797,18 +11151,36 @@
 				"COBRA": {
 					"id": 3,
 					"name": "COBRA",
+					"location": "46 25 16",
+					"coords": {"x": 46, "y": 25, "z": 16},
+					"orbit": 0,
+					"class": "TR",
+					"type": "FTL",
+					"tonnage": 1,
+					"age": 2,
+					"status": "IN_DEEP_SPACE",
+					"dest": {"x": 0, "y": 0, "z": 0},
+					"loading_point": 0,
+					"unloading_point": 0,
+					"remaining_cost": 0,
+					"message": 0,
+					"inventory": {}
+				},
+				"OLD ROSIE": {
+					"id": 4,
+					"name": "OLD ROSIE",
 					"location": "40 21 20 #2",
 					"coords": {"x": 40, "y": 21, "z": 20},
 					"orbit": 2,
 					"class": "TR",
 					"type": "FTL",
-					"tonnage": 1,
-					"age": 0,
-					"status": "ON_SURFACE",
+					"tonnage": 7,
+					"age": -1,
+					"status": "UNDER_CONSTRUCTION",
 					"dest": {"x": 0, "y": 0, "z": 0},
 					"loading_point": 0,
 					"unloading_point": 0,
-					"remaining_cost": 0,
+					"remaining_cost": 400,
 					"message": 0,
 					"inventory": {}
 				}
@@ -10833,16 +11205,19 @@
 			"auto_orders": true,
 			"tech": {
 				"MI": {"level": 10, "init": 10, "knowledge": 10, "xp": 0},
-				"MA": {"level": 11, "init": 11, "knowledge": 10, "xp": 0},
-				"ML": {"level": 4, "init": 4, "knowledge": 1, "xp": 0},
-				"GV": {"level": 1, "init": 1, "knowledge": 1, "xp": 0},
+				"MA": {"level": 12, "init": 12, "knowledge": 10, "xp": 0},
+				"ML": {"level": 5, "init": 5, "knowledge": 1, "xp": 0},
+				"GV": {"level": 2, "init": 2, "knowledge": 1, "xp": 0},
 				"LS": {"level": 1, "init": 1, "knowledge": 1, "xp": 0},
 				"BI": {"level": 14, "init": 14, "knowledge": 12, "xp": 0}
 			},
-			"econ_units": 2094,
+			"econ_units": 3205,
 			"hp_original_base": 0,
 			"fleet_cost": 0,
 			"fleet_percent_cost": 0,
+			"contacts": [],
+			"allies": [],
+			"enemies": [],
 			"namplas": {
 				"LUXADOM": {
 					"id": 1,
@@ -10869,8 +11244,8 @@
 					"auto_AUs": 0,
 					"IUs_to_install": 0,
 					"AUs_to_install": 0,
-					"mi_base": 1150,
-					"ma_base": 550,
+					"mi_base": 1196,
+					"ma_base": 572,
 					"pop_units": 1500,
 					"use_on_ambush": 0,
 					"message": 0,
@@ -10897,17 +11272,20 @@
 				"poison": {"NH3": true, "CO2": true, "Cl2": true, "F2": true, "SO2": true, "H2S": true}
 			},
 			"tech": {
-				"MI": {"level": 13, "init": 13, "knowledge": 10, "xp": 3},
-				"MA": {"level": 13, "init": 13, "knowledge": 10, "xp": 1},
-				"ML": {"level": 5, "init": 5, "knowledge": 3, "xp": 2},
-				"GV": {"level": 11, "init": 11, "knowledge": 4, "xp": 6},
-				"LS": {"level": 13, "init": 13, "knowledge": 4, "xp": 7},
+				"MI": {"level": 14, "init": 14, "knowledge": 10, "xp": 13},
+				"MA": {"level": 17, "init": 17, "knowledge": 10, "xp": 8},
+				"ML": {"level": 7, "init": 7, "knowledge": 3, "xp": 5},
+				"GV": {"level": 12, "init": 12, "knowledge": 4, "xp": 6},
+				"LS": {"level": 14, "init": 14, "knowledge": 4, "xp": 7},
 				"BI": {"level": 9, "init": 9, "knowledge": 4, "xp": 2}
 			},
-			"econ_units": 1,
+			"econ_units": 0,
 			"hp_original_base": 0,
-			"fleet_cost": 0,
-			"fleet_percent_cost": 0,
+			"fleet_cost": 16,
+			"fleet_percent_cost": 176,
+			"contacts": [],
+			"allies": [],
+			"enemies": [],
 			"namplas": {
 				"WALADAH": {
 					"id": 1,
@@ -10934,8 +11312,8 @@
 					"auto_AUs": 0,
 					"IUs_to_install": 0,
 					"AUs_to_install": 0,
-					"mi_base": 1227,
-					"ma_base": 550,
+					"mi_base": 1276,
+					"ma_base": 572,
 					"pop_units": 1500,
 					"use_on_ambush": 0,
 					"message": 0,
@@ -10962,19 +11340,55 @@
 					"shipyards": 0,
 					"IUs_needed": 0,
 					"AUs_needed": 0,
-					"auto_IUs": 28,
-					"auto_AUs": 68,
+					"auto_IUs": 0,
+					"auto_AUs": 0,
 					"IUs_to_install": 0,
 					"AUs_to_install": 0,
-					"mi_base": 44,
-					"ma_base": 106,
-					"pop_units": 7,
+					"mi_base": 87,
+					"ma_base": 208,
+					"pop_units": 10,
 					"use_on_ambush": 0,
 					"message": 0,
-					"inventory": {"CU": 96, "IU": 28, "AU": 68}
+					"inventory": {"CU": 70, "IU": 28, "AU": 42}
 				}
 			},
 			"ships": {
+				"TESTSHOT1": {
+					"id": 1,
+					"name": "TestShot1",
+					"location": "13 12 30",
+					"coords": {"x": 13, "y": 12, "z": 30},
+					"orbit": 0,
+					"class": "TR",
+					"type": "FTL",
+					"tonnage": 2,
+					"age": 1,
+					"status": "IN_DEEP_SPACE",
+					"dest": {"x": 0, "y": 0, "z": 0},
+					"loading_point": 9999,
+					"unloading_point": 0,
+					"remaining_cost": 0,
+					"message": 0,
+					"inventory": {"CU": 8, "IU": 7, "AU": 7}
+				},
+				"TESTSHOT2": {
+					"id": 2,
+					"name": "Testshot2",
+					"location": "10 13 32 #2",
+					"coords": {"x": 10, "y": 13, "z": 32},
+					"orbit": 2,
+					"class": "TR",
+					"type": "FTL",
+					"tonnage": 2,
+					"age": 0,
+					"status": "ON_SURFACE",
+					"dest": {"x": 0, "y": 0, "z": 0},
+					"loading_point": 9999,
+					"unloading_point": 0,
+					"remaining_cost": 0,
+					"message": 0,
+					"inventory": {"CU": 8, "IU": 7, "AU": 7}
+				}
 			}
 		},
 		"SP14": {
@@ -10995,17 +11409,20 @@
 			},
 			"auto_orders": true,
 			"tech": {
-				"MI": {"level": 10, "init": 10, "knowledge": 10, "xp": 0},
-				"MA": {"level": 10, "init": 10, "knowledge": 10, "xp": 0},
-				"ML": {"level": 4, "init": 4, "knowledge": 4, "xp": 0},
-				"GV": {"level": 4, "init": 4, "knowledge": 3, "xp": 0},
-				"LS": {"level": 6, "init": 6, "knowledge": 4, "xp": 0},
-				"BI": {"level": 6, "init": 6, "knowledge": 4, "xp": 0}
+				"MI": {"level": 11, "init": 11, "knowledge": 10, "xp": 5},
+				"MA": {"level": 11, "init": 11, "knowledge": 10, "xp": 5},
+				"ML": {"level": 5, "init": 5, "knowledge": 4, "xp": 4},
+				"GV": {"level": 4, "init": 4, "knowledge": 3, "xp": 1},
+				"LS": {"level": 7, "init": 7, "knowledge": 4, "xp": 4},
+				"BI": {"level": 9, "init": 9, "knowledge": 4, "xp": 7}
 			},
-			"econ_units": 2094,
+			"econ_units": 2221,
 			"hp_original_base": 0,
-			"fleet_cost": 0,
-			"fleet_percent_cost": 0,
+			"fleet_cost": 58,
+			"fleet_percent_cost": 922,
+			"contacts": [],
+			"allies": [],
+			"enemies": [],
 			"namplas": {
 				"NEFRIKI": {
 					"id": 1,
@@ -11025,22 +11442,76 @@
 					"hidden": 0,
 					"planet_index": 457,
 					"siege_eff": 0,
-					"shipyards": 1,
+					"shipyards": 3,
 					"IUs_needed": 0,
 					"AUs_needed": 0,
 					"auto_IUs": 0,
 					"auto_AUs": 0,
 					"IUs_to_install": 0,
 					"AUs_to_install": 0,
-					"mi_base": 1172,
-					"ma_base": 550,
+					"mi_base": 1219,
+					"ma_base": 572,
 					"pop_units": 1500,
 					"use_on_ambush": 0,
 					"message": 0,
-					"inventory": {}
+					"inventory": {"RM": 1, "PD": 100, "CU": 10, "IU": 10, "AU": 10}
 				}
 			},
 			"ships": {
+				"DEFENDER1": {
+					"id": 1,
+					"name": "Defender1",
+					"location": "34 13 44 #2",
+					"coords": {"x": 34, "y": 13, "z": 44},
+					"orbit": 2,
+					"class": "PB",
+					"type": "SUB_LIGHT",
+					"tonnage": 1,
+					"age": 1,
+					"status": "ON_SURFACE",
+					"dest": {"x": 0, "y": 0, "z": 0},
+					"loading_point": 0,
+					"unloading_point": 0,
+					"remaining_cost": 0,
+					"message": 0,
+					"inventory": {}
+				},
+				"TRANSPORT1": {
+					"id": 2,
+					"name": "Transport1",
+					"location": "34 13 44 #2",
+					"coords": {"x": 34, "y": 13, "z": 44},
+					"orbit": 2,
+					"class": "TR",
+					"type": "FTL",
+					"tonnage": 1,
+					"age": 0,
+					"status": "ON_SURFACE",
+					"dest": {"x": 0, "y": 0, "z": 0},
+					"loading_point": 0,
+					"unloading_point": 0,
+					"remaining_cost": 0,
+					"message": 0,
+					"inventory": {}
+				},
+				"SCOUT1": {
+					"id": 3,
+					"name": "Scout1",
+					"location": "34 13 44 #2",
+					"coords": {"x": 34, "y": 13, "z": 44},
+					"orbit": 2,
+					"class": "CT",
+					"type": "FTL",
+					"tonnage": 2,
+					"age": 0,
+					"status": "ON_SURFACE",
+					"dest": {"x": 0, "y": 0, "z": 0},
+					"loading_point": 0,
+					"unloading_point": 0,
+					"remaining_cost": 0,
+					"message": 0,
+					"inventory": {}
+				}
 			}
 		},
 		"SP15": {
@@ -11061,17 +11532,20 @@
 			},
 			"auto_orders": true,
 			"tech": {
-				"MI": {"level": 17, "init": 17, "knowledge": 10, "xp": 2},
-				"MA": {"level": 13, "init": 13, "knowledge": 10, "xp": 7},
+				"MI": {"level": 18, "init": 18, "knowledge": 10, "xp": 6},
+				"MA": {"level": 22, "init": 22, "knowledge": 10, "xp": 14},
 				"ML": {"level": 4, "init": 4, "knowledge": 4, "xp": 0},
 				"GV": {"level": 5, "init": 5, "knowledge": 4, "xp": 0},
-				"LS": {"level": 8, "init": 8, "knowledge": 3, "xp": 3},
+				"LS": {"level": 9, "init": 9, "knowledge": 3, "xp": 0},
 				"BI": {"level": 4, "init": 4, "knowledge": 4, "xp": 0}
 			},
-			"econ_units": 2,
+			"econ_units": 0,
 			"hp_original_base": 0,
-			"fleet_cost": 4,
-			"fleet_percent_cost": 54,
+			"fleet_cost": 12,
+			"fleet_percent_cost": 113,
+			"contacts": [],
+			"allies": [],
+			"enemies": [],
 			"namplas": {
 				"TA DEZ UR": {
 					"id": 1,
@@ -11098,8 +11572,8 @@
 					"auto_AUs": 0,
 					"IUs_to_install": 0,
 					"AUs_to_install": 0,
-					"mi_base": 1176,
-					"ma_base": 565,
+					"mi_base": 1222,
+					"ma_base": 588,
 					"pop_units": 1500,
 					"use_on_ambush": 0,
 					"message": 0,
@@ -11110,6 +11584,42 @@
 				"LAZYSUSAN": {
 					"id": 1,
 					"name": "LazySusan",
+					"location": "22 23 17",
+					"coords": {"x": 22, "y": 23, "z": 17},
+					"orbit": 0,
+					"class": "TR",
+					"type": "FTL",
+					"tonnage": 1,
+					"age": 2,
+					"status": "IN_DEEP_SPACE",
+					"dest": {"x": 0, "y": 0, "z": 0},
+					"loading_point": 9999,
+					"unloading_point": 0,
+					"remaining_cost": 0,
+					"message": 0,
+					"inventory": {"CU": 5, "IU": 5}
+				},
+				"LOISANDCLARK": {
+					"id": 2,
+					"name": "LoisAndClark",
+					"location": "25 25 18",
+					"coords": {"x": 25, "y": 25, "z": 18},
+					"orbit": 0,
+					"class": "TR",
+					"type": "FTL",
+					"tonnage": 1,
+					"age": 1,
+					"status": "IN_DEEP_SPACE",
+					"dest": {"x": 0, "y": 0, "z": 0},
+					"loading_point": 9999,
+					"unloading_point": 0,
+					"remaining_cost": 0,
+					"message": 0,
+					"inventory": {"CU": 5, "IU": 5}
+				},
+				"COLUMBO": {
+					"id": 3,
+					"name": "Columbo",
 					"location": "20 27 12 #4",
 					"coords": {"x": 20, "y": 27, "z": 12},
 					"orbit": 4,
@@ -11145,17 +11655,20 @@
 			},
 			"auto_orders": true,
 			"tech": {
-				"MI": {"level": 17, "init": 17, "knowledge": 10, "xp": 0},
-				"MA": {"level": 14, "init": 14, "knowledge": 10, "xp": 10},
+				"MI": {"level": 19, "init": 19, "knowledge": 10, "xp": 11},
+				"MA": {"level": 19, "init": 19, "knowledge": 10, "xp": 12},
 				"ML": {"level": 4, "init": 4, "knowledge": 4, "xp": 2},
-				"GV": {"level": 4, "init": 4, "knowledge": 4, "xp": 0},
+				"GV": {"level": 5, "init": 5, "knowledge": 4, "xp": 4},
 				"LS": {"level": 7, "init": 7, "knowledge": 4, "xp": 6},
 				"BI": {"level": 6, "init": 6, "knowledge": 3, "xp": 3}
 			},
-			"econ_units": 165,
+			"econ_units": 30,
 			"hp_original_base": 0,
-			"fleet_cost": 0,
-			"fleet_percent_cost": 0,
+			"fleet_cost": 8,
+			"fleet_percent_cost": 73,
+			"contacts": [],
+			"allies": [],
+			"enemies": [],
 			"namplas": {
 				"ANNELOS": {
 					"id": 1,
@@ -11182,15 +11695,51 @@
 					"auto_AUs": 0,
 					"IUs_to_install": 0,
 					"AUs_to_install": 0,
-					"mi_base": 1244,
-					"ma_base": 550,
+					"mi_base": 1293,
+					"ma_base": 572,
 					"pop_units": 1500,
 					"use_on_ambush": 0,
 					"message": 0,
-					"inventory": {"RM": 425, "PD": 150}
+					"inventory": {"RM": 590, "PD": 400, "CU": 100, "IU": 50, "AU": 50}
 				}
 			},
 			"ships": {
+				"TRANSPORTONE": {
+					"id": 1,
+					"name": "TransportOne",
+					"location": "32 33 43",
+					"coords": {"x": 32, "y": 33, "z": 43},
+					"orbit": 0,
+					"class": "TR",
+					"type": "FTL",
+					"tonnage": 1,
+					"age": 1,
+					"status": "IN_DEEP_SPACE",
+					"dest": {"x": 0, "y": 0, "z": 0},
+					"loading_point": 0,
+					"unloading_point": 0,
+					"remaining_cost": 0,
+					"message": 0,
+					"inventory": {}
+				},
+				"TRANSPORTTWO": {
+					"id": 2,
+					"name": "TransportTwo",
+					"location": "33 37 43",
+					"coords": {"x": 33, "y": 37, "z": 43},
+					"orbit": 0,
+					"class": "TR",
+					"type": "FTL",
+					"tonnage": 1,
+					"age": 1,
+					"status": "IN_DEEP_SPACE",
+					"dest": {"x": 0, "y": 0, "z": 0},
+					"loading_point": 0,
+					"unloading_point": 0,
+					"remaining_cost": 0,
+					"message": 0,
+					"inventory": {}
+				}
 			}
 		},
 		"SP17": {
@@ -11212,16 +11761,19 @@
 			"auto_orders": true,
 			"tech": {
 				"MI": {"level": 11, "init": 11, "knowledge": 10, "xp": 0},
-				"MA": {"level": 10, "init": 10, "knowledge": 10, "xp": 0},
+				"MA": {"level": 11, "init": 11, "knowledge": 10, "xp": 0},
 				"ML": {"level": 5, "init": 5, "knowledge": 5, "xp": 0},
-				"GV": {"level": 6, "init": 6, "knowledge": 4, "xp": 0},
-				"LS": {"level": 4, "init": 4, "knowledge": 4, "xp": 0},
+				"GV": {"level": 7, "init": 7, "knowledge": 4, "xp": 0},
+				"LS": {"level": 6, "init": 6, "knowledge": 4, "xp": 0},
 				"BI": {"level": 3, "init": 3, "knowledge": 2, "xp": 0}
 			},
-			"econ_units": 2095,
+			"econ_units": 3206,
 			"hp_original_base": 0,
 			"fleet_cost": 0,
 			"fleet_percent_cost": 0,
+			"contacts": [],
+			"allies": [],
+			"enemies": [],
 			"namplas": {
 				"OLCOMOX": {
 					"id": 1,
@@ -11248,12 +11800,12 @@
 					"auto_AUs": 0,
 					"IUs_to_install": 0,
 					"AUs_to_install": 0,
-					"mi_base": 1200,
-					"ma_base": 550,
+					"mi_base": 1248,
+					"ma_base": 572,
 					"pop_units": 1500,
 					"use_on_ambush": 0,
 					"message": 0,
-					"inventory": {"RM": 106}
+					"inventory": {"RM": 217}
 				}
 			},
 			"ships": {
@@ -11277,17 +11829,20 @@
 			},
 			"auto_orders": true,
 			"tech": {
-				"MI": {"level": 10, "init": 10, "knowledge": 10, "xp": 0},
-				"MA": {"level": 12, "init": 12, "knowledge": 10, "xp": 0},
+				"MI": {"level": 15, "init": 15, "knowledge": 10, "xp": 2},
+				"MA": {"level": 15, "init": 15, "knowledge": 10, "xp": 14},
 				"ML": {"level": 5, "init": 5, "knowledge": 2, "xp": 0},
-				"GV": {"level": 8, "init": 8, "knowledge": 5, "xp": 1},
-				"LS": {"level": 13, "init": 13, "knowledge": 4, "xp": 4},
-				"BI": {"level": 6, "init": 6, "knowledge": 4, "xp": 0}
+				"GV": {"level": 10, "init": 10, "knowledge": 5, "xp": 8},
+				"LS": {"level": 14, "init": 14, "knowledge": 4, "xp": 4},
+				"BI": {"level": 9, "init": 9, "knowledge": 4, "xp": 1}
 			},
-			"econ_units": 342,
+			"econ_units": 63,
 			"hp_original_base": 0,
 			"fleet_cost": 28,
-			"fleet_percent_cost": 509,
+			"fleet_percent_cost": 320,
+			"contacts": [],
+			"allies": [],
+			"enemies": [],
 			"namplas": {
 				"GIZNAD": {
 					"id": 1,
@@ -11314,12 +11869,12 @@
 					"auto_AUs": 0,
 					"IUs_to_install": 0,
 					"AUs_to_install": 0,
-					"mi_base": 1139,
-					"ma_base": 550,
+					"mi_base": 1184,
+					"ma_base": 572,
 					"pop_units": 1500,
 					"use_on_ambush": 0,
 					"message": 0,
-					"inventory": {"CU": 1, "IU": 16, "AU": 15}
+					"inventory": {"RM": 3, "CU": 11, "IU": 1, "AU": 6}
 				},
 				"ALPHA": {
 					"id": 2,
@@ -11330,8 +11885,8 @@
 					"status": {
 						"home_planet": false,
 						"colony": true,
-						"populated": true,
-						"mining_colony": true,
+						"populated": false,
+						"mining_colony": false,
 						"resort_colony": false,
 						"disbanded_colony": false
 					},
@@ -11346,7 +11901,7 @@
 					"auto_AUs": 0,
 					"IUs_to_install": 0,
 					"AUs_to_install": 0,
-					"mi_base": 1,
+					"mi_base": 0,
 					"ma_base": 0,
 					"pop_units": 0,
 					"use_on_ambush": 0,
@@ -11378,7 +11933,7 @@
 					"auto_AUs": 0,
 					"IUs_to_install": 0,
 					"AUs_to_install": 0,
-					"mi_base": 1,
+					"mi_base": 30,
 					"ma_base": 0,
 					"pop_units": 0,
 					"use_on_ambush": 0,
@@ -11410,7 +11965,7 @@
 					"auto_AUs": 0,
 					"IUs_to_install": 0,
 					"AUs_to_install": 0,
-					"mi_base": 4,
+					"mi_base": 2,
 					"ma_base": 0,
 					"pop_units": 0,
 					"use_on_ambush": 0,
@@ -11422,38 +11977,38 @@
 				"TANTRA": {
 					"id": 1,
 					"name": "Tantra",
-					"location": "30 41 26 #3",
-					"coords": {"x": 30, "y": 41, "z": 26},
-					"orbit": 3,
+					"location": "31 41 25",
+					"coords": {"x": 31, "y": 41, "z": 25},
+					"orbit": 0,
 					"class": "TR",
 					"type": "FTL",
 					"tonnage": 2,
-					"age": 3,
-					"status": "IN_ORBIT",
+					"age": 5,
+					"status": "IN_DEEP_SPACE",
 					"dest": {"x": 0, "y": 0, "z": 0},
 					"loading_point": 9999,
 					"unloading_point": 0,
 					"remaining_cost": 0,
 					"message": 0,
-					"inventory": {"CU": 6, "IU": 6}
+					"inventory": {}
 				},
 				"TED                 100": {
 					"id": 2,
 					"name": "Ted                 100",
-					"location": "30 41 26 #3",
-					"coords": {"x": 30, "y": 41, "z": 26},
-					"orbit": 3,
+					"location": "26 41 24",
+					"coords": {"x": 26, "y": 41, "z": 24},
+					"orbit": 0,
 					"class": "TR",
 					"type": "FTL",
 					"tonnage": 1,
-					"age": 2,
-					"status": "IN_ORBIT",
+					"age": 4,
+					"status": "IN_DEEP_SPACE",
 					"dest": {"x": 0, "y": 0, "z": 0},
 					"loading_point": 9999,
 					"unloading_point": 0,
 					"remaining_cost": 0,
 					"message": 0,
-					"inventory": {"CU": 7}
+					"inventory": {"CU": 5, "IU": 5}
 				},
 				"TOM                 100": {
 					"id": 3,
@@ -11464,14 +12019,14 @@
 					"class": "TR",
 					"type": "FTL",
 					"tonnage": 1,
-					"age": 2,
+					"age": 4,
 					"status": "IN_ORBIT",
 					"dest": {"x": 0, "y": 0, "z": 0},
 					"loading_point": 9999,
 					"unloading_point": 0,
 					"remaining_cost": 0,
 					"message": 0,
-					"inventory": {"CU": 7}
+					"inventory": {"CU": 5, "AU": 5}
 				},
 				"TIFFANY": {
 					"id": 4,
@@ -11482,14 +12037,14 @@
 					"class": "TR",
 					"type": "FTL",
 					"tonnage": 1,
-					"age": 0,
-					"status": "ON_SURFACE",
+					"age": 2,
+					"status": "IN_ORBIT",
 					"dest": {"x": 0, "y": 0, "z": 0},
 					"loading_point": 9999,
 					"unloading_point": 0,
 					"remaining_cost": 0,
 					"message": 0,
-					"inventory": {"CU": 5, "IU": 5}
+					"inventory": {"CU": 5, "AU": 5}
 				},
 				"TOAD": {
 					"id": 5,
@@ -11500,14 +12055,14 @@
 					"class": "TR",
 					"type": "FTL",
 					"tonnage": 1,
-					"age": 0,
-					"status": "ON_SURFACE",
+					"age": 2,
+					"status": "IN_ORBIT",
 					"dest": {"x": 0, "y": 0, "z": 0},
 					"loading_point": 9999,
 					"unloading_point": 0,
 					"remaining_cost": 0,
 					"message": 0,
-					"inventory": {"CU": 5, "IU": 5}
+					"inventory": {"CU": 5, "AU": 5}
 				},
 				"TREY": {
 					"id": 6,
@@ -11518,14 +12073,14 @@
 					"class": "TR",
 					"type": "FTL",
 					"tonnage": 1,
-					"age": 0,
-					"status": "ON_SURFACE",
+					"age": 2,
+					"status": "IN_ORBIT",
 					"dest": {"x": 0, "y": 0, "z": 0},
 					"loading_point": 9999,
 					"unloading_point": 0,
 					"remaining_cost": 0,
 					"message": 0,
-					"inventory": {"CU": 5, "IU": 5}
+					"inventory": {"CU": 5, "AU": 5}
 				}
 			}
 		}

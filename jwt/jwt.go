@@ -114,4 +114,3 @@ type Data struct {
 	Email    string
 	Roles    []string
 }
-

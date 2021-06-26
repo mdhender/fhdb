@@ -20,4 +20,13 @@
  * SOFTWARE.
  */
 
-package main
+package memory
+
+type Colony struct {
+	Id        string
+	Planet    *Planet
+	Species   *Species
+	Inventory []*Item
+	Ships     []*Ship
+	Shipyards int
+}

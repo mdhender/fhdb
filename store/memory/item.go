@@ -20,4 +20,10 @@
  * SOFTWARE.
  */
 
-package main
+package memory
+
+type Item struct {
+	Code     string
+	Location string
+	Quantity int
+}

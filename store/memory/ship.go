@@ -20,26 +20,30 @@
  * SOFTWARE.
  */
 
-package store
+package memory
 
 import "fmt"
 
-type Species struct {
-	Id            int
-	Name          string
-	EconomicUnits int
-	TechLevels    map[string]*TechLevel
+type Ship struct {
+	Id                 int
+	Species            *Species
+	Coords             Coords // current location
+	Age                int
+	Capacity           int
+	Code               string
+	DeepSpace          bool
+	Destination        *Coords // set only when there is a jump target
+	ForcedJump         bool
+	FTL                bool
+	Hiding             bool
+	Landed             bool
+	MaintenanceCost    int
+	Orbiting           bool
+	MALevel            int
+	WithdrewFromCombat bool
+	Inventory          map[string]*Item
 }
 
-func (ds *Store) SpeciesMap(id string) []*Species {
-	var result []*Species
-	for _, s := range ds.Sorted.Species {
-		if id == "*" || id == s.Name || id == fmt.Sprintf("%d", s.Id) || id == fmt.Sprintf("SP%d", s.Id) {
-			result = append(result, s)
-		}
-	}
-	if result == nil {
-		return []*Species{}
-	}
-	return result
+func (s *Ship) Key() string {
+	return fmt.Sprintf("%d:%d", s.Species.Id, s.Id)
 }

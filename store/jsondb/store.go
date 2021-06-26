@@ -20,4 +20,36 @@
  * SOFTWARE.
  */
 
-package main
+package jsondb
+
+const MAX_SPECIES = 100
+
+type Store struct {
+	Version  string    `json:"version"`
+	Galaxy   *Galaxy   `json:"galaxy"`
+	Systems  []*System `json:"systems"`
+	Planets  []*Planet `json:"planets"`
+	Species  map[string]*Species
+	Commands map[string]string    `json:"commands"`
+	Items    map[string]*Item     `json:"items"`
+	Ships    map[string]*ShipData `json:"ships"`
+	Tech     map[string]string    `json:"tech"`
+}
+
+type Coords struct {
+	X int `json:"x"`
+	Y int `json:"y"`
+	Z int `json:"z"`
+}
+
+type GasMinMax struct {
+	Min int `json:"min"`
+	Max int `json:"max"`
+}
+
+type Technology struct {
+	Level     int `json:"level"`
+	Init      int `json:"init"`
+	Knowledge int `json:"knowledge"`
+	BankedXp  int `json:"xp"`
+}

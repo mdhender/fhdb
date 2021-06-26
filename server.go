@@ -23,11 +23,10 @@
 package main
 
 import (
-	"fmt"
+	"errors"
 	"github.com/mdhender/fhdb/handlers"
 	"github.com/mdhender/fhdb/ports"
-	"github.com/mdhender/fhdb/store"
-	"github.com/mdhender/fhdb/store/jsondb"
+	"github.com/mdhender/fhdb/store/memory"
 	"github.com/mdhender/fhdb/way"
 	"net/http"
 	"strconv"
@@ -43,8 +42,7 @@ type Server struct {
 		Root string
 	}
 	debug bool
-	ds    *store.Store
-	jdb   *jsondb.Store
+	ds    *memory.Store
 }
 
 func (s *Server) handleCalcMishap() http.HandlerFunc {
@@ -122,7 +120,7 @@ func (s *Server) handleCalcMishap() http.HandlerFunc {
 		rsp := ports.MishapResponse{
 			Age:          mishapAge,
 			GV:           mishapGV,
-			MishapChance: float64(mishapChance)/100,
+			MishapChance: float64(mishapChance) / 100,
 		}
 		rsp.From.X = fromX
 		rsp.From.Y = fromY
@@ -130,6 +128,22 @@ func (s *Server) handleCalcMishap() http.HandlerFunc {
 		rsp.To.X = toX
 		rsp.To.Y = toY
 		rsp.To.Z = toZ
+		jsonOk(w, r, rsp)
+	}
+}
+
+func (s *Server) handleGetKnownSpecies() http.HandlerFunc {
+	return func(w http.ResponseWriter, r *http.Request) {
+		sess := handlers.GetSession(r)
+		if sess == nil || !sess.Authenticated {
+			http.Error(w, http.StatusText(http.StatusUnauthorized), http.StatusUnauthorized)
+			return
+		}
+		rsp, err := s.ds.GetKnownSpecies(sess.SpeciesId, sess.Roles)
+		if err != nil {
+			http.Error(w, http.StatusText(http.StatusNotFound), http.StatusNotFound)
+			return
+		}
 		jsonOk(w, r, rsp)
 	}
 }
@@ -145,39 +159,40 @@ func (s *Server) handleGetPlanet() http.HandlerFunc {
 			http.Error(w, http.StatusText(http.StatusNotFound), http.StatusNotFound)
 			return
 		}
-		planet, ok := s.ds.Planets[id]
-		if !ok {
-			http.Error(w, http.StatusText(http.StatusNotFound), http.StatusNotFound)
-			return
-		} else if planet == nil {
-			http.Error(w, http.StatusText(http.StatusInternalServerError), http.StatusInternalServerError)
-			return
-		}
-
-		type data struct {
-			Id                       string  `json:"id"`
-			Orbit                    int     `json:"orbit"`
-			Name                     string  `json:"name"`
-			HomeWorld                bool    `json:"home_world"`
-			AvailablePopulationUnits int     `json:"available_population_units"`
-			EconomicEfficiency       int     `json:"economic_efficiency"`
-			LSN                      int     `json:"lsn"`
-			MiningDifficulty         float64 `json:"mining_difficulty"`
-			ProductionPenalty        int     `json:"production_penalty"`
-		}
-
-		rsp := data{
-			Id:                       planet.Id,
-			Orbit:                    planet.Orbit,
-			Name:                     planet.Name,
-			HomeWorld:                planet.HomeWorld,
-			AvailablePopulationUnits: planet.AvailablePopulationUnits,
-			EconomicEfficiency:       planet.EconomicEfficiency,
-			LSN:                      planet.LSN,
-			MiningDifficulty:         planet.MiningDifficulty,
-			ProductionPenalty:        planet.ProductionPenalty,
-		}
-		jsonOk(w, r, rsp)
+		http.Error(w, http.StatusText(http.StatusNotImplemented), http.StatusNotImplemented)
+		//planet, ok := s.ds.Planets[id]
+		//if !ok {
+		//	http.Error(w, http.StatusText(http.StatusNotFound), http.StatusNotFound)
+		//	return
+		//} else if planet == nil {
+		//	http.Error(w, http.StatusText(http.StatusInternalServerError), http.StatusInternalServerError)
+		//	return
+		//}
+		//
+		//type data struct {
+		//	Id                       string  `json:"id"`
+		//	Orbit                    int     `json:"orbit"`
+		//	Name                     string  `json:"name"`
+		//	HomeWorld                bool    `json:"home_world"`
+		//	AvailablePopulationUnits int     `json:"available_population_units"`
+		//	EconomicEfficiency       int     `json:"economic_efficiency"`
+		//	LSN                      int     `json:"lsn"`
+		//	MiningDifficulty         float64 `json:"mining_difficulty"`
+		//	ProductionPenalty        int     `json:"production_penalty"`
+		//}
+		//
+		//rsp := data{
+		//	Id:                       planet.Id,
+		//	Orbit:                    planet.Orbit,
+		//	Name:                     planet.Name,
+		//	HomeWorld:                planet.HomeWorld,
+		//	AvailablePopulationUnits: planet.AvailablePopulationUnits,
+		//	EconomicEfficiency:       planet.EconomicEfficiency,
+		//	LSN:                      planet.LSN,
+		//	MiningDifficulty:         planet.MiningDifficulty,
+		//	ProductionPenalty:        planet.ProductionPenalty,
+		//}
+		//jsonOk(w, r, rsp)
 	}
 }
 
@@ -187,53 +202,51 @@ func (s *Server) handleGetPlanets() http.HandlerFunc {
 			http.Error(w, http.StatusText(http.StatusInternalServerError), http.StatusInternalServerError)
 			return
 		}
-		type data struct {
-			Id        string `json:"id"`
-			Name      string `json:"name"`
-			HomeWorld bool   `json:"home_world"`
-			Links     struct {
-				Self string `json:"self"`
-			} `json:"links"`
-		}
-
-		var rsp []data
-		for _, planet := range s.ds.Sorted.Planets {
-			d := data{
-				Id:        planet.Id,
-				Name:      planet.Name,
-				HomeWorld: planet.HomeWorld,
-			}
-			d.Links.Self = fmt.Sprintf("/api/planets/%s", d.Id)
-			rsp = append(rsp, d)
-		}
-
-		jsonOk(w, r, rsp)
+		http.Error(w, http.StatusText(http.StatusNotImplemented), http.StatusNotImplemented)
+		//type data struct {
+		//	Id        string `json:"id"`
+		//	Name      string `json:"name"`
+		//	HomeWorld bool   `json:"home_world"`
+		//	Links     struct {
+		//		Self string `json:"self"`
+		//	} `json:"links"`
+		//}
+		//
+		//var rsp []data
+		//for _, planet := range s.ds.Sorted.Planets {
+		//	d := data{
+		//		Id:        planet.Id,
+		//		Name:      planet.Name,
+		//		HomeWorld: planet.HomeWorld,
+		//	}
+		//	d.Links.Self = fmt.Sprintf("/api/planets/%s", d.Id)
+		//	rsp = append(rsp, d)
+		//}
+		//
+		//jsonOk(w, r, rsp)
 	}
 }
 
+// get information on the requested species
 func (s *Server) handleGetSpecies() http.HandlerFunc {
 	return func(w http.ResponseWriter, r *http.Request) {
-		if s.ds == nil {
-			http.Error(w, http.StatusText(http.StatusInternalServerError), http.StatusInternalServerError)
+		sess := handlers.GetSession(r)
+		if sess == nil || !sess.Authenticated {
+			http.Error(w, http.StatusText(http.StatusUnauthorized), http.StatusUnauthorized)
 			return
 		}
-		id := way.Param(r.Context(), "id")
-		if id == "" {
-			id = "*"
+		id, err := strconv.Atoi(way.Param(r.Context(), "id"))
+		if err != nil {
+			http.Error(w, http.StatusText(http.StatusNotFound), http.StatusNotFound)
 		}
-		type species struct {
-			Id   int    `json:"id"`
-			Name string `json:"name"`
-		}
-		var rsp []*species
-		for _, e := range s.ds.SpeciesMap(id) {
-			rsp = append(rsp, &species{
-				Id:   e.Id,
-				Name: e.Name,
-			})
-		}
-		if rsp == nil {
-			rsp = []*species{}
+		rsp, err := s.ds.GetSpecies(id, sess.Roles)
+		if err != nil {
+			if errors.Is(err, ports.ErrUnauthorized) {
+				http.Error(w, http.StatusText(http.StatusNotFound), http.StatusNotFound)
+				return
+			}
+			http.Error(w, http.StatusText(http.StatusNotFound), http.StatusNotFound)
+			return
 		}
 		jsonOk(w, r, rsp)
 	}
@@ -247,7 +260,7 @@ func (s *Server) handleGetSystem() http.HandlerFunc {
 			return
 		}
 		id := way.Param(r.Context(), "id")
-		rsp, err := s.jdb.GetSystem(id, sess.SpeciesId)
+		rsp, err := s.ds.GetSystem(id, sess.SpeciesId)
 		if err != nil {
 			http.Error(w, err.Error(), http.StatusInternalServerError)
 		}
@@ -262,7 +275,7 @@ func (s *Server) handleGetSystems() http.HandlerFunc {
 			http.Error(w, http.StatusText(http.StatusUnauthorized), http.StatusUnauthorized)
 			return
 		}
-		rsp, err := s.jdb.GetSystems(sess.SpeciesId)
+		rsp, err := s.ds.GetSystems(sess.SpeciesId)
 		if err != nil {
 			http.Error(w, err.Error(), http.StatusInternalServerError)
 		}
@@ -277,7 +290,7 @@ func (s *Server) handleGetTurn() http.HandlerFunc {
 			http.Error(w, http.StatusText(http.StatusUnauthorized), http.StatusUnauthorized)
 			return
 		}
-		rsp, err := s.jdb.GetTurnNumber()
+		rsp, err := s.ds.GetTurnNumber()
 		if err != nil {
 			http.Error(w, err.Error(), http.StatusInternalServerError)
 		}
@@ -292,7 +305,7 @@ func (s *Server) handleGetUser() http.HandlerFunc {
 			http.Error(w, http.StatusText(http.StatusUnauthorized), http.StatusUnauthorized)
 			return
 		}
-		rsp, err := s.jdb.GetUser(sess.SpeciesId)
+		rsp, err := s.ds.GetUser(sess.SpeciesId)
 		if err != nil {
 			http.Error(w, err.Error(), http.StatusInternalServerError)
 		}
@@ -302,7 +315,7 @@ func (s *Server) handleGetUser() http.HandlerFunc {
 
 func (s *Server) handleGetVersion() http.HandlerFunc {
 	return func(w http.ResponseWriter, r *http.Request) {
-		rsp, err := s.jdb.GetVersion()
+		rsp, err := s.ds.GetVersion()
 		if err != nil {
 			http.Error(w, err.Error(), http.StatusInternalServerError)
 		}
@@ -373,56 +386,56 @@ type jSystem struct {
 	} `json:"links"`
 }
 
-func (s *Server) helperGetSystems(all []*store.System) []*jSystem {
+func (s *Server) helperGetSystems(all []*memory.System) []*jSystem {
 	var systems []*jSystem
-	for _, system := range all {
-		d := &jSystem{
-			Id:      system.Id,
-			X:       system.X,
-			Y:       system.Y,
-			Z:       system.Z,
-			Planets: []*jPlanet{},
-			Scanned: system.Scanned,
-			Ships:   []*jShip{},
-			Visited: system.TaggedAsVisited(),
-		}
-		d.Links.Self = fmt.Sprintf("/api/systems/%s", d.Id)
-		for _, p := range system.Planets {
-			jp := &jPlanet{
-				Id:                       p.Id,
-				Orbit:                    p.Orbit,
-				Name:                     p.Name,
-				HomeWorld:                p.HomeWorld,
-				AvailablePopulationUnits: p.AvailablePopulationUnits,
-				EconomicEfficiency:       p.EconomicEfficiency,
-				Inventory:                []*jItem{},
-				LSN:                      p.LSN,
-				MiningDifficulty:         p.MiningDifficulty,
-				ProductionPenalty:        p.ProductionPenalty,
-				Ships:                    []*jShip{},
-				Shipyards:                p.Shipyards,
-			}
-			for code, inv := range p.Inventory {
-				if inv.Quantity == 0 {
-					continue
-				}
-				jp.Inventory = append(jp.Inventory, &jItem{
-					Code:     code,
-					Location: inv.Location,
-					Quantity: inv.Quantity,
-				})
-			}
-			for _, ship := range p.Ships {
-				js := &jShip{
-					Id:        ship.Id,
-					Inventory: []*jItem{},
-				}
-				jp.Ships = append(jp.Ships, js)
-			}
-			d.Planets = append(d.Planets, jp)
-		}
-		systems = append(systems, d)
-	}
+	//for _, system := range all {
+	//	d := &jSystem{
+	//		Id:      system.Id,
+	//		X:       system.X,
+	//		Y:       system.Y,
+	//		Z:       system.Z,
+	//		Planets: []*jPlanet{},
+	//		Scanned: system.Scanned,
+	//		Ships:   []*jShip{},
+	//		Visited: system.TaggedAsVisited(),
+	//	}
+	//	d.Links.Self = fmt.Sprintf("/api/systems/%s", d.Id)
+	//	for _, p := range system.Planets {
+	//		jp := &jPlanet{
+	//			Id:                       p.Id,
+	//			Orbit:                    p.Orbit,
+	//			Name:                     p.Name,
+	//			HomeWorld:                p.HomeWorld,
+	//			AvailablePopulationUnits: p.AvailablePopulationUnits,
+	//			EconomicEfficiency:       p.EconomicEfficiency,
+	//			Inventory:                []*jItem{},
+	//			LSN:                      p.LSN,
+	//			MiningDifficulty:         p.MiningDifficulty,
+	//			ProductionPenalty:        p.ProductionPenalty,
+	//			Ships:                    []*jShip{},
+	//			Shipyards:                p.Shipyards,
+	//		}
+	//		for code, inv := range p.Inventory {
+	//			if inv.Quantity == 0 {
+	//				continue
+	//			}
+	//			jp.Inventory = append(jp.Inventory, &jItem{
+	//				Code:     code,
+	//				Location: inv.Location,
+	//				Quantity: inv.Quantity,
+	//			})
+	//		}
+	//		for _, ship := range p.Ships {
+	//			js := &jShip{
+	//				Id:        ship.Id,
+	//				Inventory: []*jItem{},
+	//			}
+	//			jp.Ships = append(jp.Ships, js)
+	//		}
+	//		d.Planets = append(d.Planets, jp)
+	//	}
+	//	systems = append(systems, d)
+	//}
 	if systems == nil {
 		return []*jSystem{}
 	}

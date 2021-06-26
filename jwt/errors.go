@@ -32,5 +32,3 @@ var ErrMissingSigner = errors.New("missing signer")
 var ErrNotBearer = errors.New("not a bearer token")
 var ErrNotJWT = errors.New("not a jwt")
 var ErrUnauthorized = errors.New("unauthorized")
-
-

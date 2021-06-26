@@ -26,6 +26,7 @@ import "errors"
 
 var ErrInternalError = errors.New("internal error")
 var ErrNotFound = errors.New("not found")
+var ErrUnauthorized = errors.New("unauthorized")
 
 type Coords struct {
 	X int `json:"x"`
@@ -33,26 +34,39 @@ type Coords struct {
 	Z int `json:"z"`
 }
 
+type KnownSpeciesResponse struct {
+	Id        int `json:"id"`
+	Diplomacy struct {
+		Ally    bool `json:"ally"`
+		Enemy   bool `json:"enemy"`
+		Neutral bool `json:"neutral"`
+	}
+}
+
 type MishapResponse struct {
-	From Coords `json:"from"`
-	To Coords `json:"to"`
-	Age int `json:"age"`
-	GV int `json:"gv"`
+	From         Coords  `json:"from"`
+	To           Coords  `json:"to"`
+	Age          int     `json:"age"`
+	GV           int     `json:"gv"`
 	MishapChance float64 `json:"mishap_chance"`
 }
 
+type SpeciesResponse struct {
+	Id int `json:"id"`
+}
+
 type SystemResponse struct {
-	Id     int `json:"id"`
-	Coords Coords `json:"coords"`
-	Visited bool `json:"visited"`
-	Link string `json:"link"`
+	Id      string `json:"id"`
+	Coords  Coords `json:"coords"`
+	Visited bool   `json:"visited"`
+	Link    string `json:"link"`
 }
 
 type SystemsResponse struct {
-	Id     int `json:"id"`
-	Coords Coords `json:"coords"`
-	Visited bool `json:"visited"`
-	Link string `json:"link"`
+	Id      string `json:"id"`
+	Coords  Coords `json:"coords"`
+	Visited bool   `json:"visited"`
+	Link    string `json:"link"`
 }
 
 type TurnNumberResponse struct {

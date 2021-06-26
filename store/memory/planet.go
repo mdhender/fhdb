@@ -20,4 +20,32 @@
  * SOFTWARE.
  */
 
-package main
+package memory
+
+type Planet struct {
+	Id                       int
+	System                   *System
+	Coords                   Coords
+	Diameter                 int            `json:"diameter"`
+	EconEfficiency           float64        `json:"econ_efficiency"`
+	Gases                    map[string]int `json:"gases"`
+	Gravity                  float64        `json:"gravity"`
+	Message                  int            `json:"message"`
+	MiningDifficulty         float64        `json:"mining_difficulty"`
+	MiningDifficultyIncrease float64        `json:"md_increase"`
+	PressureClass            int            `json:"pressure_class"`
+	TemperatureClass         int            `json:"temperature_class"`
+	Colonies                 []*Colony
+	Ships                    []*Ship
+}
+
+// Less is a helper for sorting
+func (p *Planet) Less(p2 *Planet) bool {
+	return p.Coords.Less(p2.Coords)
+}
+
+type GasType int
+
+const (
+	GTNone GasType = iota
+)

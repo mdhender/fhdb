@@ -20,90 +20,84 @@
  * SOFTWARE.
  */
 
-package store
+package memory
 
-import (
-	"encoding/json"
-	"fmt"
-	"io/ioutil"
-	"log"
-	"path/filepath"
-)
+import "log"
 
 func (ds *Store) Write(root string) error {
-	log.Printf("saving %q\n", root)
-	filename := filepath.Join(root, "wstore.json")
-
-	// convert in-memory structures to json-file structures
-	var data struct {
-		Turn    int                  `json:"turn"`
-		Species map[string]*wSpecies `json:"species"`
-		Systems []*wSystem           `json:"systems"`
-	}
-	data.Turn = ds.Turn
-	data.Species = make(map[string]*wSpecies)
-	for _, s := range ds.Sorted.Species {
-		sp := &wSpecies{
-			Id:            s.Id,
-			EconomicUnits: s.EconomicUnits,
-			TechLevels:    make(map[string]*wTechLevel),
-		}
-		for k, v := range s.TechLevels {
-			val := &wTechLevel{Value: v.Value}
-			switch k {
-			case "BI":
-				sp.TechLevels["biology"] = val
-			case "GV":
-				sp.TechLevels["gravitics"] = val
-			case "LS":
-				sp.TechLevels["life_support"] = val
-			case "MA":
-				sp.TechLevels["manufacturing"] = val
-			case "MI":
-				sp.TechLevels["mining"] = val
-			case "ML":
-				sp.TechLevels["military"] = val
-			}
-		}
-		data.Species[s.Name] = sp
-	}
-	for _, s := range ds.Sorted.Systems {
-		//if s.Empty && (len(s.Planets) == 0 && len(s.Ships) == 0) {
-		//	continue
-		//}
-		sys := &wSystem{
-			Id:      fmt.Sprintf("%d %d %d", s.X, s.Y, s.Z),
-			Empty:   s.Empty,
-			Scanned: s.Scanned,
-			Ships:   nil,
-			Visited: s.Visited,
-		}
-		for _, p := range s.Planets {
-			pla := &wPlanet{
-				Orbit:                    p.Orbit,
-				Name:                     p.Name,
-				HomeWorld:                p.HomeWorld,
-				AvailablePopulationUnits: p.AvailablePopulationUnits,
-				EconomicEfficiency:       p.EconomicEfficiency,
-				Inventory:                nil,
-				LSN:                      p.LSN,
-				MiningDifficulty:         p.MiningDifficulty,
-				ProductionPenalty:        p.ProductionPenalty,
-				Ships:                    nil,
-				Shipyards:                p.Shipyards,
-			}
-			sys.Planets = append(sys.Planets, pla)
-		}
-		data.Systems = append(data.Systems, sys)
-	}
-	b, err := json.MarshalIndent(&data, "", "  ")
-	if err != nil {
-		return err
-	} else if err = ioutil.WriteFile(filename, b, 0644); err != nil {
-		return err
-	}
-
-	log.Printf("saved %6d systems\n", len(data.Systems))
+	log.Printf("not saving %q\n", root)
+	//filename := filepath.Join(root, "wstore.json")
+	//
+	//// convert in-memory structures to json-file structures
+	//var data struct {
+	//	Turn    int                  `json:"turn"`
+	//	Species map[string]*wSpecies `json:"species"`
+	//	Systems []*wSystem           `json:"systems"`
+	//}
+	//data.Turn = ds.Turn
+	//data.Species = make(map[string]*wSpecies)
+	//for _, s := range ds.Sorted.Species {
+	//	sp := &wSpecies{
+	//		Id:            s.Id,
+	//		EconomicUnits: s.EconomicUnits,
+	//		TechLevels:    make(map[string]*wTechLevel),
+	//	}
+	//	for k, v := range s.TechLevels {
+	//		val := &wTechLevel{Value: v.Value}
+	//		switch k {
+	//		case "BI":
+	//			sp.TechLevels["biology"] = val
+	//		case "GV":
+	//			sp.TechLevels["gravitics"] = val
+	//		case "LS":
+	//			sp.TechLevels["life_support"] = val
+	//		case "MA":
+	//			sp.TechLevels["manufacturing"] = val
+	//		case "MI":
+	//			sp.TechLevels["mining"] = val
+	//		case "ML":
+	//			sp.TechLevels["military"] = val
+	//		}
+	//	}
+	//	data.Species[s.Name] = sp
+	//}
+	//for _, s := range ds.Sorted.Systems {
+	//	//if s.Empty && (len(s.Planets) == 0 && len(s.Ships) == 0) {
+	//	//	continue
+	//	//}
+	//	sys := &wSystem{
+	//		Id:      fmt.Sprintf("%d %d %d", s.X, s.Y, s.Z),
+	//		Empty:   s.Empty,
+	//		Scanned: s.Scanned,
+	//		Ships:   nil,
+	//		Visited: s.Visited,
+	//	}
+	//	for _, p := range s.Planets {
+	//		pla := &wPlanet{
+	//			Orbit:                    p.Orbit,
+	//			Name:                     p.Name,
+	//			HomeWorld:                p.HomeWorld,
+	//			AvailablePopulationUnits: p.AvailablePopulationUnits,
+	//			EconomicEfficiency:       p.EconomicEfficiency,
+	//			Inventory:                nil,
+	//			LSN:                      p.LSN,
+	//			MiningDifficulty:         p.MiningDifficulty,
+	//			ProductionPenalty:        p.ProductionPenalty,
+	//			Ships:                    nil,
+	//			Shipyards:                p.Shipyards,
+	//		}
+	//		sys.Planets = append(sys.Planets, pla)
+	//	}
+	//	data.Systems = append(data.Systems, sys)
+	//}
+	//b, err := json.MarshalIndent(&data, "", "  ")
+	//if err != nil {
+	//	return err
+	//} else if err = ioutil.WriteFile(filename, b, 0644); err != nil {
+	//	return err
+	//}
+	//
+	//log.Printf("saved %6d systems\n", len(data.Systems))
 	return nil
 }
 

@@ -20,4 +20,44 @@
  * SOFTWARE.
  */
 
-package main
+package jsondb
+
+import (
+	"bytes"
+	"fmt"
+)
+
+type AlienRelationship int
+
+const (
+	ARNone AlienRelationship = iota
+	ARAlly
+	AREnemy
+	ARNeutral
+)
+
+func (ar AlienRelationship) MarshalJSON() ([]byte, error) {
+	switch ar {
+	case ARNone:
+		return []byte("none"), nil
+	case ARAlly:
+		return []byte("ally"), nil
+	case AREnemy:
+		return []byte("enemy"), nil
+	case ARNeutral:
+		return []byte("neutral"), nil
+	}
+	panic(fmt.Sprintf("assert(alienRelationship != %d)", ar))
+}
+
+func (ar *AlienRelationship) UnmarshalJSON(b []byte) error {
+	*ar = ARNone
+	if bytes.Equal(b, []byte(`"ally"`)) {
+		*ar = ARAlly
+	} else if bytes.Equal(b, []byte(`"enemy"`)) {
+		*ar = AREnemy
+	} else if bytes.Equal(b, []byte(`"neutral"`)) {
+		*ar = ARNeutral
+	}
+	return nil
+}

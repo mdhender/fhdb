@@ -49,7 +49,7 @@ func (s *Server) Routes(cfg *config.Config) error {
 		{"GET", "/api/flush", s.handleSave()},
 		{"GET", "/api/planet/:id", s.handleGetPlanet()},
 		{"GET", "/api/planets", s.handleGetPlanets()},
-		{"GET", "/api/species", s.handleGetSpecies()},
+		{"GET", "/api/species", s.handleGetKnownSpecies()},
 		{"GET", "/api/species/:id", s.handleGetSpecies()},
 		{"GET", "/api/system/:id", s.handleGetSystem()},
 		{"GET", "/api/systems", s.handleGetSystems()},

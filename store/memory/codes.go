@@ -20,7 +20,7 @@
  * SOFTWARE.
  */
 
-package store
+package memory
 
 import (
 	"fmt"

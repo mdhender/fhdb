@@ -27,6 +27,7 @@ import (
 	"github.com/mdhender/fhdb/config"
 	"github.com/mdhender/fhdb/handlers"
 	"github.com/mdhender/fhdb/store/jsondb"
+	"github.com/mdhender/fhdb/store/memory"
 	"github.com/mdhender/fhdb/way"
 	"log"
 	"mime"
@@ -64,8 +65,14 @@ func run(cfg *config.Config) error {
 		return fmt.Errorf("jwt key length should be at least 16")
 	}
 
+	jdb, err := jsondb.Read(filepath.Join(cfg.Data, "galaxy.json"))
+	if err != nil {
+		return err
+	}
+
 	s := &Server{
 		Router: way.NewRouter(),
+		ds:     &memory.Store{},
 	}
 	s.Addr = net.JoinHostPort(cfg.Server.Host, fmt.Sprintf("%d", cfg.Server.Port))
 	s.IdleTimeout = cfg.Server.Timeout.Idle
@@ -73,12 +80,11 @@ func run(cfg *config.Config) error {
 	s.WriteTimeout = cfg.Server.Timeout.Write
 	s.MaxHeaderBytes = 1 << 20 // TODO: make this configurable
 	s.Data = cfg.Data
-	var err error
-	s.jdb, err = jsondb.Read(filepath.Join(cfg.Data, "galaxy.json"))
+	err = s.ds.Read(jdb)
 	if err != nil {
 		return err
 	}
-	s.Handler = handlers.CORS(handlers.Version(s.Router, s.jdb.Version))
+	s.Handler = handlers.CORS(handlers.Version(s.Router, s.ds.Version))
 	//err = s.jdb.Write(filepath.Join(cfg.Data, "cluster.json"))
 	//if err != nil {
 	//	return err
